@@ -1,10 +1,43 @@
-import os.path
 import pandas as pd
+from cerberus import Validator
 
 
-### Data Preperation Related Function(s)
+class CustomValidator(Validator):
 
-# Read the
+    def _validate_inList(self, inList, field, value):
+
+
+
+
+        #   The outline/model of of what the settings dictionary should follow
+        # schema = {
+        #     "general": {
+        #
+        #         #   select a file from the list of "available_files"
+        #         "selected_file": {"type": "string".lower(), "oneof_allowed": settings['general']['available_files']},
+        #
+        #         "available_files":{"type": "list"},
+        #
+        #         #   what happens with NaN values, options: True => consider them, False => Dont consider them
+        #         "considering_NaN": False
+        #
+        #     },
+        #     "ML_settings": {
+        #
+        #         # Select a number between 0 and 1
+        #         "validation_set_size": 0.3
+        #
+        #     },
+        #     "testing_settings": {
+        #
+        #     },
+        # }
+
+
+
+
+
+# Read the selected file
 def read_dataset(file, available_files, purpose):
     # Check if the file exists
     # if not os.path.isfile(data_file):
@@ -44,16 +77,16 @@ def split_label(selected_file, current_df):
         return current_df, label
 
 
-def tokenization(df, column):
-    tokenized = []
-
-    for row_text in df[column]:
-        # tokenized.append(WhitespaceTokenizer().tokenize(row_text))
-        tokenized.append(word_tokenize(row_text))
-    return tokenized
-
-
-def stemmer(doc):
-    return (stemmer.stem(w) for w in analyzer(doc))
+# def tokenization(df, column):
+#     tokenized = []
+#
+#     for row_text in df[column]:
+#         # tokenized.append(WhitespaceTokenizer().tokenize(row_text))
+#         tokenized.append(word_tokenize(row_text))
+#     return tokenized
+#
+#
+# def stemmer(doc):
+#     return (stemmer.stem(w) for w in analyzer(doc))
 
 ### Feature Realated Functions
