@@ -1,0 +1,17 @@
+
+What I think the order of the todo list should be:
+
+
+1) create a view that calls the News api and collects the news data
+
+2) add the data to the model
+
+3) Run migrations
+
+4) create the view for website to collect the data from model
+
+5) create html that displays the collected data
+
+6)
+
+

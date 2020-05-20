@@ -1,17 +1,96 @@
-
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit: cover">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+<!--    <link rel="stylesheet" type="text/css" href="{% static 'web/css/STN-Style.css' %}">-->
+
+
+    <!--- API KEY: 9dff3b262af247178cba410205157829 -->
+
+    <title>Spread the News</title>
 </head>
 <body>
+    <div class="grid-wrapper">
+        <header class="header-container">
+            <div class="header-BGimg">
+                <div class="logo">
+                    <!--Insert logo here-->
+                    <h1> SPREAD THE NEWS</h1>
+                </div>
+                <nav class="navbar-block">
+                    <a class="navbar-option navbar-visible" href="#">Home</a>
+                    <div class="dropdown">
+                        <a class="navbar-option navbar-visible">Category</a>
+                        <div class="dropdown-content">
+                            <a class="navbar-option" href="#">Politics</a>
+                            <a class="navbar-option" href="#">Technology</a>
+                            <a class="navbar-option" href="#">Science</a>
+                            <a class="navbar-option" href="#">Culture</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <a class="navbar-option navbar-visible">More</a>
+                        <div class="dropdown-content">
+                            <a class="navbar-option" href="#">About</a>
+                            <a class="navbar-option" href="#">Contact Us</a>
+                        </div>
+                    </div>
+                </nav> 
+            </div>
+        </header>
+        <main class="main-container">
+            <section class="detector-section section-block">
+                <div class="detector">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </section>
+            <section class="latest-news-section section-block">
+                {% for options, value in news %}
+                    <h2></h2>
+
+                {% endfor %}
+                    <div class="news-report">
+                        <h2> <a href="#">  </a> </h2>
+                    </div>
 
 
-<h1>HI</h1>
-
-
+                <h1 class="main-h1">Latest News</h1>
+                    <div class="latest-news-list">
+                        <div class="latest-news-company">
+                            <h2 class=company-h2>Google</h2>
+                            <div class="latest-news-card">
+                                <h2 class="report-title"></h2> <!--Title of the news report-->
+                                <img class="report-img" src=""> <!--IMG of the news report-->
+                                <h3 class=news-h3>blah</h3>
+                            </div>
+                            <div class="latest-news-card">
+                                <h3 class="news-h3">blah 2</h3>
+                            </div>
+                            <div class="latest-news-card">
+                            </div>
+                        </div>
+                    </div>
+            </section>
+            <section class="other-news-section section-block">
+                <h1 class="main-h1">Other Stories</h1>
+            </section>
+        </main>
+        <footer class="footer-container">
+            <div class="footer">
+                <p>FOOTER</p>
+                <p>Powered by News API</p>
+            </div>
+        </footer>
+    </div>
+    <script src="STN-Script.js"></script>
 </body>
 </html>
+

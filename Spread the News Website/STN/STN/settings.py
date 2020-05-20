@@ -10,7 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
+
+from celery.schedules import crontab
 import os
+
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -28,6 +32,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,8 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'website.apps.WebsiteConfig',
-    'news_feed.apps.NewsFeedConfig',
+    'website',
 ]
 
 MIDDLEWARE = [
@@ -75,6 +79,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'STN.wsgi.application'
 
 
+
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
@@ -84,6 +89,7 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
 
 
 # Password validation
@@ -105,6 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -119,6 +126,7 @@ USE_L10N = True
 USE_TZ = True
 
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
@@ -128,3 +136,19 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "website/static"),
 
 )
+
+
+
+# #   Celery Settings - as mentioned in the celery file, it is of importance to prefix celery settings
+# #   with "CELERY_"
+#
+# # BROKER - where my tasks will be that need execution
+# CELERY_BROKER_URL = 'redis://localhost:6379'
+# CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+#
+# CELERY_BEAT_SCHEDULE = {
+#     "sample_task": {
+#         "task": "news_feed.tasks.sample_task",
+#         "schedule": crontab(minute="*/1"),
+#     },
+# }

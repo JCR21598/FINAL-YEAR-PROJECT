@@ -1,13 +1,10 @@
 import pandas as pd
-from cerberus import Validator
+#from cerberus import Validator
 
 
-class CustomValidator(Validator):
+#class CustomValidator(Validator):
 
-    def _validate_inList(self, inList, field, value):
-
-
-
+    #def _validate_inList(self, inList, field, value):
 
         #   The outline/model of of what the settings dictionary should follow
         # schema = {
@@ -76,17 +73,9 @@ def split_label(selected_file, current_df):
         del current_df["label"]
         return current_df, label
 
+def print_params(name, params):
 
-# def tokenization(df, column):
-#     tokenized = []
-#
-#     for row_text in df[column]:
-#         # tokenized.append(WhitespaceTokenizer().tokenize(row_text))
-#         tokenized.append(word_tokenize(row_text))
-#     return tokenized
-#
-#
-# def stemmer(doc):
-#     return (stemmer.stem(w) for w in analyzer(doc))
+    print("Parameters for " + name)
+    print(params)
+    print()
 
-### Feature Realated Functions

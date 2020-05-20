@@ -2,22 +2,37 @@ from django.shortcuts import render
 from django.views import generic
 from django.http import HttpResponse
 
-
-from STN.news_feed.models import NewsReport
-
-
-class IndexView(generic.ListView):
-
-    template_name = "website/templates/website/index.html"
-
-    def get_newsfeed(self):
-
-        news_feed = NewsReport.objects.all()
-        context = news_feed
-
-        return HttpResponse()
-
-    def get_queryset(self):
-            pass
+from newsapi import NewsApiClient
 
 
+def news_reports(request):
+
+    #   API
+    newsapi = NewsApiClient(api_key='9dff3b262af247178cba410205157829')
+
+    top_headlines = newsapi.get_top_headlines(category='business',
+                                              language='en', country='us')
+
+    context = {"top_headlines": top_headlines}
+
+
+
+    return render(request, "website/base.html", context)
+
+
+
+
+
+
+class DetailView(generic.ListView):
+
+    template_name = "website/templates/website/base.html"
+
+
+
+
+
+
+
+
+# https://www.youtube.com/watch?time_continue=8&v=QD4GlXtf-WU&feature=emb_logo

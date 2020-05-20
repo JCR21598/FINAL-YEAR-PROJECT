@@ -1,0 +1,252 @@
+/* Imports */
+@import url(//fonts.googleapis.com/css?family=Open+Sans);
+
+
+/* Reset Default CSS*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body {
+    -webkit-text-size-adjust: none;
+}
+
+
+/*** Implementation of Styling for Spread the News Website ***/
+
+
+/****   Notes   ****/
+/*
+
+GC # => Grid Container (grid)
+GI # => Grid Item (grid)
+
+FC # => Flex Container (flexbox)
+FI # => Flex Item (felxbox)
+
+- GC, GI, FC and FI are for you to identify the types of layout and who is the container (parent) 
+  and who are the items (child)
+- The number that follows is to identify which pair corresponds with each other
+
+*/
+
+/**=====**   General **=====**/
+
+.grid-wrapper{       /* GC 1 */
+    /* General properties */
+    background-color: #f2f2f2;
+    font-family: 'Open Sans';
+    font-size: 1.8rem;
+
+    /* Grid Layout Properties */
+    display: grid;
+    grid-gap: 150px 10px;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 20vh 200vh 1fr;
+    grid-template-areas: "Header Header Header"
+                         ". Main ."
+                         "Footer Footer Footer";
+}
+
+
+
+/**=====**  Header Container - Background, Nav Bar and Logo **=====**/
+
+.header-container{
+    /* General properties */
+
+    /* Grid Layout Properties */ 
+    grid-area: Header;
+}
+
+.header-BGimg{
+    /* Background image properties */
+    background: url("../images/NewsBg1Edited.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    background-size: cover;
+    height:100%;
+
+    /* Style on Background Image */
+    position: relative;    /* So we can put text and logo on it */
+    text-align: centerl;
+    
+
+    
+}
+
+.logo{  
+    /* Position in image */
+    position: absolute; /* The absolute position in the "header-BGimg"*/
+    bottom: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* Following properties are temporary while I finish the Logo */
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 6rem;
+    color: black;
+
+}
+
+
+
+
+.navbar-block{    /* FC 1*/
+    /* Position in image */
+    top: 3%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* Properties of Block */
+    position: fixed;
+    width: 40vw;
+    padding: 0vh 100vw;
+    background-color: rgb(146, 207, 228);
+
+    /* Flexbox properties */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content:center;
+}
+
+.navbar-option{
+    /* General Properties */
+    text-decoration: none;
+    color:rgba(255, 255, 255, 1);
+    padding: 15px 30px;
+}
+
+.navbar-visible{
+    position: relative;
+    display:inline-block;
+
+    /* Transition Properties */
+    border: 2px solid transparent;
+    border-radius: 5px;
+
+    transition: color 0.2s, border 0.1s;
+    transition-timing-function: linear;
+}
+
+.dropdown-content{
+    position: absolute; 
+    display: none;
+    font-size: 1.5rem;
+    background-color: rgb(146, 207, 228);
+}
+
+.dropdown-content a{
+    display:block;
+}
+
+.navbar-visible:hover{
+    /* General and Transition Properties */
+    color:rgba(255, 255, 255, 1);
+    border-color: white;
+}
+
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+
+.dropdown-content .navbar-option:hover{
+    text-decoration-line: underline;
+}
+
+
+
+
+
+
+/**=====**  Main Container - News reports **=====**/
+.main-container{
+    /* General properties */
+    background-color: #ffffff ;
+
+    /* Grid Layout Properties */ 
+    grid-area: Main;
+
+    /*Grid Properties*/
+    display: grid;
+    grid-gap: 80px 10px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr 2fr;
+    grid-template-areas: "Detector"
+                         "Latest"
+                         "Other";
+}
+
+
+.detector-section{
+    background-color:red;
+
+    /* Grid Properties*/
+    grid-area: Detector;
+}
+
+.latest-news-section{
+    background-color:yellow;
+    
+    /* Grid Properties*/
+    grid-area: Latest;
+}
+
+.other-news-section{
+    background-color:black;
+    
+    /* Grid Properties*/
+    grid-area: Other;
+}
+
+.news-report{
+    background-color: blue;
+    padding: 100px;
+    color: orange;
+}
+
+
+/**=====**  Footer Container **=====**/
+.footer-container{
+    /* General properties */
+    background-color:red;
+
+    /* Grid Layout Properties */ 
+    grid-area: Footer;
+    
+}
