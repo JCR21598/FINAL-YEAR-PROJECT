@@ -1,0 +1,304 @@
+/* Reset Default CSS*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body {
+    -webkit-text-size-adjust: none;
+}
+
+
+/*** Implementation of Styling for Spread the News Website ***/
+
+
+/****   Notes   ****/
+
+
+
+
+/*** Global/General Styling ***/
+
+.grid-wrapper{      
+    /* General properties */
+    background-color: #f8f8f8;
+    font-family: 'Open Sans';
+    font-size: 1.8rem;
+
+    /* Grid Layout Properties */
+    display: grid;
+
+    grid-template-areas: "Header Header Header"
+                         "  .     Main    .   "
+                         "Footer Footer Footer";
+
+    grid-gap: 50px 10px;
+    grid-template-columns: 0.75fr 5fr 0.75fr;
+    grid-template-rows: 100vh 250vh 20vh;
+    
+}
+
+
+/*** The website is broken down into Header, Main and Footer Grid ***/
+
+    /*** Header Section ***/
+
+
+.header-container{
+    /* General properties */
+    background-image: linear-gradient(
+        to bottom,
+        rgb(17, 17, 17) 70%, 
+        #f8f8f8 5%
+        );
+
+
+    /* Outer Grid Layout Properties */
+    grid-area: Header;
+
+    /* Inner Grid Layout Properties */
+    display:grid;
+
+    grid-template-areas: "  .    Logo      NavBar    . "
+                         "  .  PageIntro  PageIntro  . ";
+
+    grid-gap: 100px 10px;
+    grid-template-columns: 1fr 2fr 2fr 1fr;
+    grid-template-rows: 20vh 60vh;
+
+
+}
+
+
+.logo{      
+    /* Following properties are temporary while I finish the Logo */
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 1.75em;
+    color: white;
+    width: 20%;
+
+    /* General Properties */
+
+
+    /* Grid Properties */
+    grid-area: Logo;
+    justify-self: start;
+    align-self: end;
+    
+}
+
+.navbar{
+    /* General Properties */
+    margin: 0 30px;
+
+    /* Grid Properties */
+    grid-area: NavBar;
+    justify-self: end;
+    align-self: end;
+
+    /* Flex Properties */
+    display: flex; 
+    justify-content: space-around;
+
+}
+
+.navbar-item{
+    /* General Properties */
+    text-decoration: none;
+
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 0.75em;
+    color:white;
+    margin: 0 30px;
+
+    /* Flex Properties */
+
+}
+
+
+.page-intro{
+    /* General Properties */
+    background-color: #ececc7;
+
+    /* Grid Properties */
+    grid-area: PageIntro;
+}
+
+
+
+    /*** Main Section ***/
+
+    /*** Main section is split up Detector and News ***/
+
+.main-container{
+    /* General properties */
+    background-color: blue;
+
+    /* Outer Grid Layout Properties */
+    grid-area: Main;
+
+    /* Inner Grid Properties*/
+    display: grid;
+    
+    grid-template-areas: "Detector"
+                         "News";
+
+    grid-gap: 50px 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 10fr;
+}
+
+
+    /*** Detector Section (parent: Main) ***/
+
+.detector-section{
+    /* General Properties */
+    background-color: teal;
+    text-align: center;
+
+    /* Grid Properties*/
+    grid-area: Detector;
+
+    align-self: top;
+}
+
+.detector-heading{
+    /* General Properties */
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    padding-top:15px;
+    padding-bottom: 50px;
+}
+
+.add-info{
+    /* General Properties */
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 0.5em;
+    font-style:italic;
+
+    padding: 15px 0;
+    /* Flex Properties */
+    align-self: center;
+}
+
+.detector-form{
+    /* Flex Properties */
+    align-self: center;
+}
+
+#detector-field{
+    /* General Properties */
+    padding:0;
+    margin: 0; 
+    border: none;
+    
+    width:80%;
+    height: 55px;
+    border: none;
+    border-radius: 20px;
+}
+
+#detector-submit{
+    /* General Properties */
+    padding: 0;
+    margin: 0;
+    border:none;
+
+    width:10%;
+    height: 60px;
+    
+}
+
+
+
+
+
+/*** News Section (parent: Main) ***/
+.news-section{
+    /* General Properties */
+    background-color: thistle;
+
+    /* Outer Grid Properties*/
+    grid-area: News;
+
+    /* Inner Grid Properties*/
+    display: grid;
+    grid-gap: 80px 10px;
+    grid-template-areas:"Highlight-News"
+                        "    Search    ";
+}
+
+
+/*** Highlight Section (parent: News) ***/
+.highlight-section{
+    grid-area: Highlight-News;
+}
+
+.newsfeed{
+    /* Grid Properties */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+    align-content: stretch;
+    justify-content: space-between;
+    align-items: end;
+    justify-items: center;
+}
+
+.news-heading{
+    /* General Properties */
+    padding: 50px 50px;
+}
+
+.per-news{  
+    color: black;
+    width: 400px;
+}
+
+/*** News Section (parent: News) ***/
+.search-section{
+    grid-area: Search;
+}
+
+
+    /*** Footer Section ***/
+
+.footer-container{
+    /* General properties */
+    background-color: rgb(40,48,71);
+
+    /* Grid Layout Properties */
+    grid-area: Footer;
+
+}

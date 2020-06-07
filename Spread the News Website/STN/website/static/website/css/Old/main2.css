@@ -44,23 +44,13 @@ body {
 
 
 /****   Notes   ****/
-/*
-
-GC # => Grid Container (grid)
-GI # => Grid Item (grid)
-
-FC # => Flex Container (flexbox)
-FI # => Flex Item (felxbox)
-
-- GC, GI, FC and FI are for you to identify the types of layout and who is the container (parent)
-  and who are the items (child)
-- The number that follows is to identify which pair corresponds with each other
-
-*/
 
 
 
-.grid-wrapper{       /* GC 1 */
+
+/*** Global/General Styling ***/
+
+.grid-wrapper{      
     /* General properties */
     background-color: #f2f2f2;
     font-family: 'Open Sans';
@@ -69,18 +59,32 @@ FI # => Flex Item (felxbox)
     /* Grid Layout Properties */
     display: grid;
     grid-gap: 150px 10px;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: 20vh 100vh ;
+    
+    grid-template-columns: 1fr 2fr 2fr;
+    grid-template-rows: 50vh 50vh 50vh;
+    
     grid-template-areas: "Header Header Header"
-                         ". Main .";
+                         ". Main ."
+                         "Footer Footer Footer";
 }
+
+
+/*** The website is broken down into Header, Main and Footer Grid ***/
+
+    /*** Header Section ***/
 
 
 .header-container{
     /* General properties */
+    background-color: yellow;
 
     /* Grid Layout Properties */
     grid-area: Header;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
 }
 
 
@@ -88,7 +92,7 @@ FI # => Flex Item (felxbox)
     /* Following properties are temporary while I finish the Logo */
     font-family:Arial, Helvetica, sans-serif;
     font-size: 4em;
-    color: "black";
+    color: black;
     padding: 20px 20px;
     margin: auto;
     width: 50%;
@@ -96,40 +100,80 @@ FI # => Flex Item (felxbox)
 }
 
 
+    /*** Main Section ***/
+
+    /*** Main section is split up Detector and News ***/
+
 .main-container{
     /* General properties */
-    background-color: #ffffff ;
+    background-color: blue;
 
-    /* Grid Layout Properties */
+    /* Outer Grid Layout Properties */
     grid-area: Main;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
 
-    /*Grid Properties*/
+
+    /* Inner Grid Properties*/
     display: grid;
     grid-gap: 80px 10px;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 2fr;
     grid-template-areas: "Detector"
-                         "Latest";
-}
-
-.detector-section{
-    background-color:red;
-
-    /* Grid Properties*/
-    grid-area: Detector;
-}
-
-.latest-news-section{
-    background-color:yellow;
-
-    /* Grid Properties*/
-    grid-area: Latest;
-}
-
-.per-news{
-    background-color: blue;
-    padding: 100px;
-    color: orange;
+                         "News";
 }
 
 
+      /*** Detector Section (parent: Main) ***/
+
+  .detector-section{
+          /* Grid Properties*/
+          grid-area: Detector;
+  }
+
+
+    /*** News Section (parent: Main) ***/
+  .news-section{
+
+      /* Outer Grid Properties*/
+      grid-area: News;
+
+      /* Inner Grid Properties*/
+      display: grid;
+      grid-gap: 80px 10px;
+      grid-template-areas: "Highlight-News"
+                           "Search";
+  }
+
+  /*** Highlight Section (parent: News) ***/
+    .highlight-section{
+        grid-area: Highlight-News;
+    }
+
+    .per-news{  
+        color: orange;
+    }
+
+  /*** News Section (parent: News) ***/
+    .highlight-section{
+        grid-area: Search;
+    }
+
+    .search-section{
+
+    }
+
+
+    /*** Footer Section ***/
+
+.footer-container{
+    /* General properties */
+    background-color: red;
+
+    /* Grid Layout Properties */
+    grid-area: Footer;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}

@@ -4,5 +4,17 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.news_reports, name="Spread the News")
+    # Home URL(s)
+    path('', views.home_page, name="Spread the News"),
+    path('input/', views.home_page),
+
+    # About URL(s)
+    path('about/', views.about_page),
+
+    # Contact Us URL(s)
+    path('contact/', views.contact_page),
+
+    # API URL(s)
+    path('api/', views.api_page),
+
 ]

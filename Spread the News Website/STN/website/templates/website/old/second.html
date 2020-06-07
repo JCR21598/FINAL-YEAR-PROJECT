@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit: cover">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+   <link rel="stylesheet" type="text/css" href="{% static 'website/css/main.css' %}">
+
+
+    <title>  </title>
+</head>
+<body>
+    <div class="grid-wrapper">
+        <header class="header-container">
+
+            {% include 'website/navbar.html' %}
+
+            <div class="home-intro">
+
+            </div>
+        </header>
+        <main class="main-container">
+            <div class="detector-section">
+                <h1 class="title">Automatic News Checker</h1>
+                <p class="add-info">Insert URL or news title in text field.</p>
+
+                <!-- Need this as it is a POST-->
+                {% csrf_token %}
+
+                <form id="detector-form">
+                    <input type="text" id="detector-input" name="d-input" placeholder="Get your news checked...">
+                    <button type="submit" id="submit" aria-label="Search">
+                        <img class="search-icon" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDU2Ljk2NiA1Ni45NjYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDU2Ljk2NiA1Ni45NjY7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4Ij4KPHBhdGggZD0iTTU1LjE0Niw1MS44ODdMNDEuNTg4LDM3Ljc4NmMzLjQ4Ni00LjE0NCw1LjM5Ni05LjM1OCw1LjM5Ni0xNC43ODZjMC0xMi42ODItMTAuMzE4LTIzLTIzLTIzcy0yMywxMC4zMTgtMjMsMjMgIHMxMC4zMTgsMjMsMjMsMjNjNC43NjEsMCw5LjI5OC0xLjQzNiwxMy4xNzctNC4xNjJsMTMuNjYxLDE0LjIwOGMwLjU3MSwwLjU5MywxLjMzOSwwLjkyLDIuMTYyLDAuOTIgIGMwLjc3OSwwLDEuNTE4LTAuMjk3LDIuMDc5LTAuODM3QzU2LjI1NSw1NC45ODIsNTYuMjkzLDUzLjA4LDU1LjE0Niw1MS44ODd6IE0yMy45ODQsNmM5LjM3NCwwLDE3LDcuNjI2LDE3LDE3cy03LjYyNiwxNy0xNywxNyAgcy0xNy03LjYyNi0xNy0xN1MxNC42MSw2LDIzLjk4NCw2eiIgZmlsbD0iIzAwMDAwMCIvPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K">
+                    </button>
+                    <span class="error-msg"></span>
+                </form>
+                <div class="input">
+                    <p>{{ user_input }}</p>
+                </div>
+            </div>
+            <div class="news-section">
+                <div class="highlight-section">
+                    <h1 class="title">Today's Headlines</h1>
+
+                    {% for report in top_headlines.articles %}
+                        <div class='per-news'>
+                            <h1 class="news-title"> {{ report.Title }} </h1>
+                            <h2 class="news_report"> {{ report.author }} </h2>
+                            <h2 class="news_description"> {{ report.description }}</h2>
+                            <hr>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="search-section">
+
+
+                </div>
+
+            </div>
+        </main>
+        <footer class="footer-container">
+            <p>FOOTER</p>
+        </footer>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'website/js/main.js' %}"></script>
+</body>
+</html>

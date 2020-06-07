@@ -1,0 +1,40 @@
+{% extends "website/base.html" %}
+
+{% block title %} {{ title }} {% endblock title%}
+
+
+{% block header-content %}
+<div class="page-intro">
+
+</div>
+{% endblock header-content%}
+
+
+{% block main-content %}
+
+<div class="detector-section">
+    <h1 class="detector-heading">Automatic News Checker</h1>
+    <div class="detector">
+        {% include 'website/snippets/detector.html' %}
+    </div>
+    <p class="add-info">Insert URL that you would want to check.</p>
+</div>
+
+<div class="news-section">
+
+    <div class="highlight-section">
+
+        <h1 class="news-heading">Today's Stories</h1>
+        <div class="newsfeed">
+            {% include 'website/snippets/newsfeed.html' %}
+        </div>
+
+    </div>
+    <div class="search-section">
+        <h1 class="news-heading">Search News</h1>
+
+    </div>
+
+</div>
+
+{% endblock main-content %}

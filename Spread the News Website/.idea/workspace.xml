@@ -2,22 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="037fb3e6-8a1a-48dc-8d07-7c666147a69c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/STN/website/static/website/SAFE.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/STN/website/static/website/STN-Style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Fake News Detector/Machine Learning/ML-main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Fake News Detector/Machine Learning/ML-main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Fake News Detector/Machine Learning/ML_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Fake News Detector/Machine Learning/ML_functions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Fake News Detector/Machine Learning/detector.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Fake News Detector/Machine Learning/testing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/STN/website/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/STN/website/ml-predict.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/STN/website/static/website/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/STN/website/templates/website/old/second.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Fake News Detector/Machine Learning/ML-main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Fake News Detector/Machine Learning/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Fake News Detector/Machine Learning/ML_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Fake News Detector/Machine Learning/functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/STN/STN/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/STN/STN/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/STN/STN/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/STN/STN/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/STN/news_feed/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/STN/STN/celery.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/STN/news_feed/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/STN/news_feed/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/STN/news_feed/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/STN/news_feed/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/STN/news_feed/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/STN/news_feed/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/STN/news_feed/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/STN/website/templates/website/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/STN/website/templates/website/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STN/TODO's" beforeDir="false" afterPath="$PROJECT_DIR$/STN/TODO's" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STN/website/static/website/SAFE.css" beforeDir="false" afterPath="$PROJECT_DIR$/STN/website/static/website/css/Old/SAFE.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STN/website/static/website/STN-Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/STN/website/static/website/css/Old/STN-Style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STN/website/static/website/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STN/website/templates/website/base.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STN/website/templates/website/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/STN/website/templates/website/old/Original.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/STN/website/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/STN/website/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/STN/website/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/STN/website/views.py" afterDir="false" />
     </list>
@@ -29,12 +28,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="Python Script" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/STN/website/forms.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/STN/website/views.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectId" id="1bWwl7wWeY5YgHowphPgyx6bE9z" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -44,14 +48,18 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Fake News Detector/Machine Learning" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Developer\University\FINAL YEAR PROJECT\Spread the News Website\STN\website\static\website" />
+      <recent name="D:\Developer\University\FINAL YEAR PROJECT\Spread the News Website\STN\website\static\website\css\Old" />
+      <recent name="D:\Developer\University\FINAL YEAR PROJECT\Spread the News Website\STN\website\templates\website\old" />
       <recent name="D:\Developer\University\FINAL YEAR PROJECT\Spread the News Website\STN\website\templates\website" />
+      <recent name="D:\Developer\University\FINAL YEAR PROJECT\Spread the News Website\STN\website\templates\website\snippets" />
+      <recent name="D:\Developer\University\FINAL YEAR PROJECT\Spread the News Website\STN\website\static\website\css" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -73,20 +81,28 @@
     </state>
     <state x="724" y="322" key="#com.intellij.fileTypes.FileTypeChooser/-1920.-1.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1589121984973" />
     <state x="724" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1589965101848" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1589900954241">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1591111614081">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-1180" y="273" key="FileChooserDialogImpl/-1920.-1.1920.1040/0.0.1920.1040@-1920.-1.1920.1040" timestamp="1588941334400" />
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589900954241" />
-    <state x="655" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1589822593281">
+    <state x="740" y="274" key="FileChooserDialogImpl/1920.174.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591111614081" />
+    <state x="347" y="639" key="com.intellij.ide.util.TipDialog" timestamp="1591526320763">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="655" y="343" key="com.intellij.ide.util.TipDialog/-1920.-1.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1589139576787" />
     <state x="655" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589822593281" />
-    <state x="953" y="520" width="974" height="527" key="dock-window-1" timestamp="1589972271179">
+    <state x="347" y="639" key="com.intellij.ide.util.TipDialog/1920.174.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591526320763" />
+    <state x="981" y="0" width="946" height="1047" key="dock-window-1" timestamp="1591526342663">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="953" y="520" width="974" height="527" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1589972271179" />
+    <state x="-7" y="0" width="974" height="1047" key="dock-window-1/-1920.-1.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1590083844555" />
+    <state x="953" y="0" width="974" height="1047" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1591041806171" />
+    <state x="981" y="0" width="946" height="1047" key="dock-window-1/1920.174.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591526342663" />
+    <state x="953" y="0" width="974" height="1047" key="dock-window-2" timestamp="1591099640064">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="953" y="0" width="974" height="1047" key="dock-window-2/1920.174.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591099640064" />
     <state x="623" y="225" key="search.everywhere.popup" timestamp="1589058822373">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

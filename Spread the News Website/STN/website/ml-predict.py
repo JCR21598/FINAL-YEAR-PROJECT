@@ -1,0 +1,3 @@
+
+def prediction():
+    print("PREDICTION")

@@ -1,0 +1,15 @@
+
+<form action="input/" method="POST" id="detector-form">
+
+    {% csrf_token %}
+    {{ form }}
+
+    <button type="submit" id="submit" aria-label="Search">Submit</button>
+    <span class="error-msg"></span>
+</form>
+
+
+
+<!--<input type="text" id="detector-input" name="d-input" placeholder="Get your news checked...">-->
+
+
