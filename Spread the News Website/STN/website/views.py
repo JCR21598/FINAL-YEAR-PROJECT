@@ -5,7 +5,6 @@ from django.http import HttpResponse
 from newsapi import NewsApiClient
 
 from .forms import DetectorForm
-from .
 
 
 
