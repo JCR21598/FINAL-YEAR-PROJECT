@@ -12,32 +12,34 @@
 
 {% block main-content %}
 
+<!-- Detector -->
 <div class="detector-section">
-    <h1 class="detector-heading">Automatic News Checker</h1>
+    <h1 class="detector-h1">Automatic News Checker</h1>
     <div class="detector">
         {% include 'website/snippets/detector.html' %}
     </div>
-    <p class="add-info">Insert URL that you would want to check.</p>
-    <div classs="detecor-response">
-        <p class="url-output"></p>
+    <div class="detector-response">
+        <span class="resp-url"></span>
+        <span class="resp-news-title"></span>
+        <span class="resp-news-text"></span>
     </div>
 </div>
 
+
+<!-- News Feed -->
 <div class="news-section">
-
-    <div class="highlight-section">
-
-        <h1 class="news-heading">Today's Stories</h1>
+    <div class="today-news-section">
+        <h1 class="news-h1">Today's Stories</h1>
         <div class="newsfeed">
             {% include 'website/snippets/newsfeed.html' %}
         </div>
-
     </div>
-    <div class="search-section">
-        <h1 class="news-heading">Search News</h1>
+    <div class="search-new-section">
+        <h1 class="news-h1">Search News</h1>
+        <div class="newsfeed">
 
+        </div>
     </div>
-
 </div>
 
 {% endblock main-content %}

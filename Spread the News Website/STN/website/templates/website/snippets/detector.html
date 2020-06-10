@@ -2,10 +2,11 @@
 <form action="input/" method="POST" id="detector-form">
 
     {% csrf_token %}
-    {{ form.user_input }}
 
-    <button type="submit" id="submit" aria-label="Search">Submit</button>
-    <span class="error-msg"></span>
+    <div class="search-bar">
+        {{ form.user_input }}
+        <button type="submit" id="detector-submit" aria-label="Search"><i class="material-icons">search</i></button>
+    </div>
 </form>
 
 

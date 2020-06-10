@@ -45,29 +45,40 @@ def url_prediction(request):
     #   Data already arrived validated and not-blank
     if request.method == 'POST' and request.is_ajax():
 
-        #   Grabbing URL submitted
-        url = request.POST["url_input"]
+        json_response = []
 
-        #   Obtain news from url
-        article = Article(url)
-        article.download()
+        #   Grabbing submitted URLs and store in list
+        user_input = request.POST["url_input"]
+        urls = user_input.split(" ")
 
-        #   Extract the contents of the Newspaper
-        article.parse()
+        print(urls)
 
-        #   Getting content that is of interest
-        article_title = article.title()
-        article_text = article.text()
+        for url in urls:
+
+            #   Obtain news from url
+            article = Article(url)
+            article.download()
+
+            #   Extract the contents of the Newspaper
+            article.parse()
+
+            #   Getting content that is of interest
+            article_title = article.title
+            article_text = article.text
 
 
+            temp_json = {
+                "url": url,
+                "article_title": article_title,
+                "article_text": article_text,
+            }
 
-        #   The data that is sent to JS file jQuery)
-        json_response = {
-            "url" : url,
-            "article_title": article_title,
-            "article_text": article_text,
+            #   Append the urls - this is the data that is sent to JavaScript file to display
+            json_response.append(temp_json)
 
-        }
+
+        print(json_response)
+
 
     else:
         print("ERROR -  Not POST and/or AJAX")

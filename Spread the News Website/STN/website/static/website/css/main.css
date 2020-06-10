@@ -39,12 +39,16 @@ body {
     -webkit-text-size-adjust: none;
 }
 
+input:focus, textarea:focus, select:focus, input:after{
+    outline: none;
+}
+
 
 /*** Implementation of Styling for Spread the News Website ***/
 
 
-/****   Notes   ****/
-
+/****   imports  ****/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 
 
@@ -53,7 +57,7 @@ body {
 .grid-wrapper{      
     /* General properties */
     background-color: #f8f8f8;
-    font-family: 'Open Sans';
+    font-family: 'Open Sans', sans-serif;;
     font-size: 1.8rem;
 
     /* Grid Layout Properties */
@@ -68,6 +72,10 @@ body {
     grid-template-rows: 100vh 250vh 20vh;
     
 }
+
+
+
+
 
 
 /*** The website is broken down into Header, Main and Footer Grid ***/
@@ -163,7 +171,7 @@ body {
 
 .main-container{
     /* General properties */
-    background-color: blue;
+    background-color: inherit;
 
     /* Outer Grid Layout Properties */
     grid-area: Main;
@@ -171,8 +179,8 @@ body {
     /* Inner Grid Properties*/
     display: grid;
     
-    grid-template-areas: "Detector"
-                         "News";
+    grid-template-areas: " Detector "
+                         "   News   ";
 
     grid-gap: 50px 0;
     grid-template-columns: 1fr;
@@ -184,61 +192,81 @@ body {
 
 .detector-section{
     /* General Properties */
-    background-color: teal;
+    background-color:white;
     text-align: center;
 
     /* Grid Properties*/
     grid-area: Detector;
 
-    align-self: top;
-}
-
-.detector-heading{
-    /* General Properties */
-    font-family:Arial, Helvetica, sans-serif;
-    font-size: 1.5em;
-    padding-top:15px;
-    padding-bottom: 50px;
-}
-
-.add-info{
-    /* General Properties */
-    font-family:Arial, Helvetica, sans-serif;
-    font-size: 0.5em;
-    font-style:italic;
-
-    padding: 15px 0;
     /* Flex Properties */
-    align-self: center;
+    display: flex;
+    flex-direction: column;
+
 }
 
-.detector-form{
+
+.detector-h1{
+    /* General Properties */
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-size: 1.25em;
+    padding-top:25px;
+    padding-bottom: 40px;
+}
+
+.search-bar{
+    /* General Properties */
+    width:100%;
+    padding-bottom:25px;
+    
     /* Flex Properties */
-    align-self: center;
+    display: flex;
+    justify-content: center;
+    
 }
 
 #detector-field{
     /* General Properties */
     padding:0;
     margin: 0; 
-    border: none;
-    
-    width:80%;
+    width:35%;
     height: 55px;
-    border: none;
-    border-radius: 20px;
+
+    /* Merging text-field and button */
+    background-color: rgb(255,255,255);
+
+    border-top: 3px solid rgb(184,184,184);
+    border-bottom: 3px solid rgb(184,184,184);
+    border-right: none;
+    border-left: 3px solid rgb(184,184,184);
+
+    border-top-left-radius: 20px ;
+    border-bottom-left-radius: 20px;
+}
+
+#detector-field[type="url"] {
+    padding-left: 30px;
 }
 
 #detector-submit{
     /* General Properties */
     padding: 0;
     margin: 0;
-    border:none;
-
     width:10%;
-    height: 60px;
-    
+    height: 61px;
+    cursor: pointer;    
+
+    /* Merging text-field and button */
+    background-color: rgb(255,255,255);
+
+    border-top: 3px solid rgb(184,184,184);
+    border-bottom: 3px solid rgb(184,184,184);
+    border-right: 3px solid rgb(184,184,184);
+    border-left: none;
+
+    border-top-right-radius: 20px ;
+    border-bottom-right-radius: 20px;
 }
+
 
 
 
@@ -255,14 +283,14 @@ body {
     /* Inner Grid Properties*/
     display: grid;
     grid-gap: 80px 10px;
-    grid-template-areas:"Highlight-News"
-                        "    Search    ";
+    grid-template-areas:"  Today-News  "
+                        "  Search-News ";
 }
 
 
-/*** Highlight Section (parent: News) ***/
-.highlight-section{
-    grid-area: Highlight-News;
+/*** Today News Section (parent: News) ***/
+.today-news-section{
+    grid-area: Today-News;
 }
 
 .newsfeed{
@@ -276,7 +304,7 @@ body {
     justify-items: center;
 }
 
-.news-heading{
+.news-h1{
     /* General Properties */
     padding: 50px 50px;
 }
@@ -286,9 +314,9 @@ body {
     width: 400px;
 }
 
-/*** News Section (parent: News) ***/
-.search-section{
-    grid-area: Search;
+/*** Search News Section (parent: News) ***/
+.search-news-section{
+    grid-area: Search-News;
 }
 
 

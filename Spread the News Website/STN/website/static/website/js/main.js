@@ -2,7 +2,7 @@
 // JQuery Functionality - waits till page is loaded
 $(document).ready(function(){
 
-    // For the Detectfor form when it is submitted
+    //  Waits for a submit event to happen on the form
     $("#detector-form").on("submit", function(event){
 
         // Prevent webpage from reloading
@@ -11,6 +11,11 @@ $(document).ready(function(){
         // Call AJAX function
         detector_form();
     });
+
+    // Add more dynamic features to the website here
+
+
+
 });
 
 
@@ -36,9 +41,12 @@ function detector_form(){
             alert("Successful AJAX")
             $('#detector-field').val('');  // Reset TextField
 
-            // Changes HTML elements
-            $('.url-output').html(json_response.url);
 
+
+            // Changes HTML elements
+            $('.resp-url').html(json_response.url);
+            $('.resp-news-title').html(json_response.article_title);
+            $('.resp-news-text').html(json_response.article_text);
         },
 
         // If AJAX unsuccessful
@@ -47,6 +55,8 @@ function detector_form(){
         }
     });
 }
+
+
 
 // Provided by Django
 function getCookie(name) {
