@@ -20,7 +20,9 @@ function detector_form(){
     $.ajax({
         url: "/input/",
         type: "POST",
-        data: { input: $('#detector-field').val() },
+        data: {
+            url_input: $('#detector-field').val()
+            },
 
         // Message before sending
        beforeSend: function(xhr, settings) {
@@ -30,10 +32,13 @@ function detector_form(){
         },
 
         // If AJAX successful
-        success: function(json){
+       success: function(json_response){
             alert("Successful AJAX")
-            $('#detector-field').val('');  // Reset Field
-            console.log(json); // log the returned json to the console
+            $('#detector-field').val('');  // Reset TextField
+
+            // Changes HTML elements
+            $('.url-output').html(json_response.url);
+
         },
 
         // If AJAX unsuccessful

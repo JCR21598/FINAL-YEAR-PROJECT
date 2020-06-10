@@ -6,7 +6,7 @@ from . import views
 urlpatterns = [
     # Home URL(s)
     path('', views.home_page, name="Spread the News"),
-    path('input/', views.home_page),
+    path('input/', views.url_prediction),
 
     # About URL(s)
     path('about/', views.about_page),

@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.views import generic
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 
 from newsapi import NewsApiClient
+from newspaper import Article
 
 from .forms import DetectorForm
 
@@ -12,9 +13,11 @@ from .forms import DetectorForm
 
 # Call to retrieve news and display on screen
 def home_page(request):
+    ###     FORM
+    #   Unbound Form
+    form = DetectorForm()
 
     ###     API
-
     #   API CALL
     newsapi = NewsApiClient(api_key='9dff3b262af247178cba410205157829')
 
@@ -22,25 +25,7 @@ def home_page(request):
     top_headlines = newsapi.get_top_headlines(language='en')
 
 
-    ###     FORM
-    if request.method == 'POST':
-
-        # Bound From - populate form instance with data from request
-        form = DetectorForm(request.POST)
-
-        # Validate data
-        if form.is_valid():
-
-            # Validated data located here
-            user_input = form.cleaned_data["user_input"]
-
-            # Next Steps
-
-    else:
-        #   Unbound Form - no data being submitted (like when the page is loaded)
-        form = DetectorForm()
-
-
+    ###     Prep for Response
     #   Designated Template
     template_sent = "website/home.html"
 
@@ -53,6 +38,41 @@ def home_page(request):
 
     return render(request, template_sent, context)
 
+
+#   AJAX
+def url_prediction(request):
+
+    #   Data already arrived validated and not-blank
+    if request.method == 'POST' and request.is_ajax():
+
+        #   Grabbing URL submitted
+        url = request.POST["url_input"]
+
+        #   Obtain news from url
+        article = Article(url)
+        article.download()
+
+        #   Extract the contents of the Newspaper
+        article.parse()
+
+        #   Getting content that is of interest
+        article_title = article.title()
+        article_text = article.text()
+
+
+
+        #   The data that is sent to JS file jQuery)
+        json_response = {
+            "url" : url,
+            "article_title": article_title,
+            "article_text": article_text,
+
+        }
+
+    else:
+        print("ERROR -  Not POST and/or AJAX")
+
+    return JsonResponse(json_response, status=200)
 
 
 class DetailView(generic.ListView):

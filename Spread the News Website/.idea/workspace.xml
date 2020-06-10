@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="037fb3e6-8a1a-48dc-8d07-7c666147a69c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Fake News Detector/Machine Learning/ML-main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STN/website/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/STN/website/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STN/website/static/website/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/STN/website/static/website/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STN/website/templates/website/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/STN/website/templates/website/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STN/website/templates/website/snippets/detector.html" beforeDir="false" afterPath="$PROJECT_DIR$/STN/website/templates/website/snippets/detector.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STN/website/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/STN/website/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STN/website/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/STN/website/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/easy-install.pth" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/easy-install.pth" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Scripts/pip3-script.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/pip3-script.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -77,12 +85,12 @@
     <state x="655" y="343" key="com.intellij.ide.util.TipDialog/-1920.-1.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1589139576787" />
     <state x="655" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589822593281" />
     <state x="347" y="639" key="com.intellij.ide.util.TipDialog/1920.174.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591531749101" />
-    <state x="981" y="0" width="946" height="1047" key="dock-window-1" timestamp="1591531751215">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1920" y="174" width="974" height="1047" key="dock-window-1" timestamp="1591637248604">
+      <screen x="1920" y="174" width="1920" height="1040" />
     </state>
     <state x="-7" y="0" width="974" height="1047" key="dock-window-1/-1920.-1.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1590083844555" />
     <state x="953" y="0" width="974" height="1047" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1591041806171" />
-    <state x="981" y="0" width="946" height="1047" key="dock-window-1/1920.174.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591531751215" />
+    <state x="1920" y="174" width="974" height="1047" key="dock-window-1/1920.174.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591637248604" />
     <state x="953" y="0" width="974" height="1047" key="dock-window-2" timestamp="1591099640064">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
