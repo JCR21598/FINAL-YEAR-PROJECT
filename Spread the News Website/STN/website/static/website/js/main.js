@@ -1,4 +1,5 @@
 
+
 // JQuery Functionality - waits till page is loaded
 $(document).ready(function(){
 
@@ -18,7 +19,6 @@ $(document).ready(function(){
 
 });
 
-
 // AJAX function
 function detector_form(){
     console.log($('#detector-field').val())
@@ -37,16 +37,13 @@ function detector_form(){
         },
 
         // If AJAX successful
-       success: function(json_response){
+       success: function(view_response){
             alert("Successful AJAX")
             $('#detector-field').val('');  // Reset TextField
 
+            //  Send News report for each response response
+            view_response.forEach(sendToTemplate)
 
-
-            // Changes HTML elements
-            $('.resp-url').html(json_response.url);
-            $('.resp-news-title').html(json_response.article_title);
-            $('.resp-news-text').html(json_response.article_text);
         },
 
         // If AJAX unsuccessful
@@ -55,6 +52,42 @@ function detector_form(){
         }
     });
 }
+
+
+function sendToTemplate(each_response){
+
+    console.log(each_response)
+
+    //  Create div for each report
+    var eachNewsDiv = document.createElement("div");
+    eachNewsDiv.setAttribute("class", "news-response")
+
+    //  Create necessary html elements and their attributes
+    var newsUrl = document.createElement("div")
+    var newsTitle = document.createElement("div")
+    var newsText = document.createElement("div")
+
+    newsUrl.setAttribute("class", "resp-url")
+    newsTitle.setAttribute("class", "resp-news-title")
+    newsText.setAttribute("class", "resp-news-text")
+
+    //  Make input from view HTML valid
+    var respUrl = document.createTextNode(each_response.url);
+    var respNewsTitle = document.createTextNode(each_response.article_title);
+    var respNewsText = document.createTextNode(each_response.article_text);
+
+
+    // add the newly created element and its content into the DOM
+    document.getElementById("detector-response").appendChild(respUrl);
+    document.getElementById("detector-response").appendChild(respNewsTitle);
+    document.getElementById("detector-response").appendChild(respNewsText);
+
+}
+
+
+
+
+
 
 
 

@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="037fb3e6-8a1a-48dc-8d07-7c666147a69c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/STN/website/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/STN/website/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/STN/website/static/website/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/STN/website/static/website/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/STN/website/static/website/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/STN/website/static/website/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/STN/website/templates/website/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/STN/website/templates/website/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/STN/website/templates/website/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/STN/website/templates/website/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/STN/website/templates/website/snippets/detector.html" beforeDir="false" afterPath="$PROJECT_DIR$/STN/website/templates/website/snippets/detector.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/STN/website/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/STN/website/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

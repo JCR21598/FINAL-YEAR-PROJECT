@@ -43,9 +43,14 @@ def home_page(request):
 def url_prediction(request):
 
     #   Data already arrived validated and not-blank
-    if request.method == 'POST' and request.is_ajax():
 
-        json_response = []
+
+    # TODO: consider the fact that by allowing multiple URLS then only one needs to be valid for it to be submitted
+    #               - A solution can be that you dont make it a required field and use the valid function for each URL wihtin the for loop in the list with try...except...
+
+    json_response = []
+
+    if request.method == 'POST' and request.is_ajax():
 
         #   Grabbing submitted URLs and store in list
         user_input = request.POST["url_input"]
@@ -76,14 +81,12 @@ def url_prediction(request):
             #   Append the urls - this is the data that is sent to JavaScript file to display
             json_response.append(temp_json)
 
-
         print(json_response)
-
 
     else:
         print("ERROR -  Not POST and/or AJAX")
 
-    return JsonResponse(json_response, status=200)
+    return JsonResponse(json_response, status=200, safe=False)
 
 
 class DetailView(generic.ListView):
