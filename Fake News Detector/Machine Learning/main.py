@@ -21,6 +21,13 @@ if __name__ == "__main__":
     '''
 
     settings = {
+        
+        "program_operation" :{
+
+            "operation": "train",
+            "available_operations": ["train", "test"],
+        },
+
         "general":{
 
             #   select a file from the list of "available_files"
@@ -28,6 +35,7 @@ if __name__ == "__main__":
             "available_files" : ["github", "kdata", "liar"],
 
         },
+
         "ML_settings":{
 
             #  Stemmer - reduction of variations of words
@@ -39,11 +47,11 @@ if __name__ == "__main__":
             #   what happens with NaN values, options: True => consider them, False => Dont consider them
             "considering_NaN": False,
 
-
             # Select a number between 0 and 0.9
             "validation_set_size": 0.3,
 
         },
+
         "testing_settings": {
 
         },
@@ -56,18 +64,32 @@ if __name__ == "__main__":
         #
     '''
 
-    #   Instatiating objects to use
-    detector = Detector(settings)
-    tester = Testing()
+
+    #   This is you have a new model that needs training - worth noting that when training it will export the model
+    if settings["program_operation"]["operation"] is "train":
+
+        #   Instatiating objects to use
+        detector = Detector(settings)
+
+        #   Train model
+        detector.train_model()
 
 
-    #   Train model
-    detector.train_model()
 
-    #   Test the model
-    tester.test_validation()
-    tester.test_recent()
-    tester.test_other_datasets()
+    #   This is if you already a model and just want to test it
+    elif settings["program_operation"]["operation"] is "test":
+
+        tester = Testing()
+
+        #   Test the model
+        tester.test_validation()
+        tester.test_recent()
+        tester.test_other_datasets()
+
+
+    else:
+        print(f"The program operation {program_operation} is not valid")
+
 
 
 

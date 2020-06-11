@@ -21,12 +21,14 @@ $(document).ready(function(){
 
 // AJAX function
 function detector_form(){
-    console.log($('#detector-field').val())
+
+    alert($('#detector-field').val())
+
     $.ajax({
         url: "/input/",
         type: "POST",
         data: {
-            url_input: $('#detector-field').val()
+            user_input: $('#detector-field').val()
             },
 
         // Message before sending
@@ -39,16 +41,19 @@ function detector_form(){
         // If AJAX successful
        success: function(view_response){
             alert("Successful AJAX")
-            $('#detector-field').val('');  // Reset TextField
+
+            //  Reset elements
+            $('#detector-field').val('');
+            $("#detector-response").html("");
 
             //  Send News report for each response response
-            view_response.forEach(sendToTemplate)
+            view_response.forEach(sendToTemplate);
 
         },
 
         // If AJAX unsuccessful
         error: function(){
-            alert("AJAX Error")
+            alert("AJAX Error");
         }
     });
 }
@@ -56,35 +61,44 @@ function detector_form(){
 
 function sendToTemplate(each_response){
 
-    console.log(each_response)
+    console.log(each_response);
 
     //  Create div for each report
     var eachNewsDiv = document.createElement("div");
-    eachNewsDiv.setAttribute("class", "news-response")
+    eachNewsDiv.setAttribute("class", "each-news-response");
 
     //  Create necessary html elements and their attributes
-    var newsUrl = document.createElement("div")
-    var newsTitle = document.createElement("div")
-    var newsText = document.createElement("div")
+    var newsUrl = document.createElement("div");
+    var newsTitle = document.createElement("div");
+    var newsText = document.createElement("div");
+    var newsPrediction = document.createElement("div");
 
-    newsUrl.setAttribute("class", "resp-url")
-    newsTitle.setAttribute("class", "resp-news-title")
-    newsText.setAttribute("class", "resp-news-text")
+    newsUrl.setAttribute("class", "resp-url");
+    newsTitle.setAttribute("class", "resp-news-title");
+    newsText.setAttribute("class", "resp-news-text");
+    newsPrediction.setAttribute("class", "resp-prediction");
 
-    //  Make input from view HTML valid
+    //  Add response from view to new elements
     var respUrl = document.createTextNode(each_response.url);
     var respNewsTitle = document.createTextNode(each_response.article_title);
     var respNewsText = document.createTextNode(each_response.article_text);
+    var respPrediction = document.createTextNode(each_response.prediction);
 
+    //  Link HTML elements with response content
+    newsUrl.appendChild(respUrl)
+    newsTitle.appendChild(respNewsTitle)
+    newsText.appendChild(respNewsText)
+    newsPrediction.appendChild(respPrediction)
 
-    // add the newly created element and its content into the DOM
-    document.getElementById("detector-response").appendChild(respUrl);
-    document.getElementById("detector-response").appendChild(respNewsTitle);
-    document.getElementById("detector-response").appendChild(respNewsText);
+    //  Add elements to the new div
+    eachNewsDiv.appendChild(newsUrl);
+    eachNewsDiv.appendChild(newsTitle);
+    eachNewsDiv.appendChild(newsText);
+    eachNewsDiv.appendChild(newsPrediction);
 
+    //  Add div to the response div already created in the HTML
+    document.getElementById("detector-response").appendChild(eachNewsDiv);
 }
-
-
 
 
 

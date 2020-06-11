@@ -23,8 +23,7 @@ from nltk.corpus import stopwords
 from nltk.stem import SnowballStemmer
 
 # Object Serialization
-import pickle
-
+import joblib
 
 # Other modules of this tool
 import functions as funcs
@@ -39,6 +38,10 @@ class Detector:
         #   setting dictionary is destructed and set to attributes of the object to avoid lengthy expressions/statements
         #   and to use its attributes and methods in different places
 
+        #   Program Operation
+        self.operation = settings["program_operation"]["operation"]
+        self.available_files = settings["program_operation"]["available_operations"]
+
         #   General settings
         self.selected_file = settings["general"]["selected_file"]
         self.available_files = settings["general"]["available_files"]
@@ -48,9 +51,6 @@ class Detector:
         self.apply_stemmer = settings["ML_settings"]["apply_stemmer"]
         self.considering_NaN = settings["ML_settings"]["considering_NaN"]
         self.validation_set_size = settings["ML_settings"]["validation_set_size"]
-
-        #   Testing settings
-
 
 
     def train_model(self):
@@ -139,13 +139,17 @@ class Detector:
         # GridSearchCV just works as a another model
         grid_search = GridSearchCV(pipeline, param_grid=grid, scoring='accuracy', n_jobs=-1, cv=5)
 
+        # Best Hyper-parameters that Grid Search found
+        # print("Best Hyper-parameters:")
+        # print(grid_search.best_params_)
+
         # Create the model from training data
         self.model = grid_search.fit(X=self.X_train, y=self.y_train)
 
+        #   If the program operation was set to train then it saves the model - this is found in the settings dictionary
+        if self.operation.lower() == "train":
+            joblib.dump(self.model, "Models.file", compress=1)
 
-        # Best Hyper-parameters
-        print("Best Hyper-parameters:")
-        print(grid_search.best_params_)
 
 
 

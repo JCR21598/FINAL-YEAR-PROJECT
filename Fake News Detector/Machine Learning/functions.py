@@ -40,15 +40,15 @@ import os
 # Read the selected file
 def read_dataset(file, available_files, purpose):
 
-    # Check if the file exists
-    print(os.path.abspath(file))
-    filename, file_extension = os.path.splitext(str(os.path.abspath(file)))
-    print(file_extension)
-    exit()
+    # # Check if the file exists
+    # print(os.path.abspath(file))
+    # filename, file_extension = os.path.splitext(str(os.path.abspath(file)))
+    # print(file_extension)
 
-    if os.path.exists(file.lower()):
-        print("File path does not exist.")
-        exit()
+
+    # if os.path.exists(file.lower()):
+    #     print("File path does not exist.")
+    #     exit()
 
     if file.lower() in available_files:
 

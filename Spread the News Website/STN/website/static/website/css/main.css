@@ -267,6 +267,31 @@ input:focus, textarea:focus, select:focus, input:after{
     border-bottom-right-radius: 20px;
 }
 
+.each-news-response{
+    /* General Properties */
+    width: 100%;
+}
+
+.resp-url{
+    /* General Properties */
+    color: red;
+}
+
+.resp-news-title{
+    /* General Properties */
+
+}
+
+.resp-news-text{
+    /* General Properties */
+
+}
+
+.resp-prediction{
+    /* General Properties */
+
+
+}
 
 
 
