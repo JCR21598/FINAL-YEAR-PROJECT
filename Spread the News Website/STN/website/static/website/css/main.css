@@ -1,4 +1,11 @@
-/* Reset Default CSS*/
+/****   imports     ****/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');     /* Reference it as 'Open Sans' */
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');          /* Reference it as 'Lora' */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');    /* Reference it as 'Montserrat' */
+
+
+
+/***    Reset Default CSS   ***/
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
     margin: 0;
@@ -47,18 +54,116 @@ input:focus, textarea:focus, select:focus, input:after{
 /*** Implementation of Styling for Spread the News Website ***/
 
 
-/****   imports  ****/
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+/***    Website Typeface/Typography    ***/ 
+
+/* Notes:                                                     
+
+        - Classes that have "xxxxx-tf" refers to typeface/font  
+
+        - Class will be joined with header tags, but using class name is preferable as header tags are not always used
+
+        - Most about font styling will be specified here, anything outside is are minor changes to the default ones
+
+*/
+
+.grid-wrapper{
+    font-family: "Open Sans", Arial, sans-serif;
+    font-size: 2rem;
+}
+
+
+.h-tf{      /* For Headers */
+    font-family: "Lora", Arial, sans-serif;
+    font-size: 1.25em; 
+    color: black ;
+    font-style: normal;
+    font-variant: small-caps ;
+    font-weight: normal;
+
+    line-height: 2.5;          /* Vertical Spacing - spacing between different lines */
+    letter-spacing: 0.155em;       /* Horizontal Spacing - spacing between letters */
+
+}
+
+.sh-tf{      /* For Sub-Heading */
+    font-family: ;
+    font-size: ; 
+    color: ;
+    font-style: ;
+    font-variant: ;
+    font-weight: ;
+
+    line-height: ;          /* Vertical Spacing - spacing between different lines */
+    letter-spacing: ;       /* Horizontal Spacing - spacing between letters */
+}
+
+.n-tf{      /* For Normal Text */
+    font-family: 'Montserrat';
+    font-size: 0.65em; 
+    color: black;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+
+    line-height: 1.5;          /* Vertical Spacing - spacing between different lines */
+    letter-spacing: 0.06em;       /* Horizontal Spacing - spacing between letters */
+}
+
+.e-tf{      /* For Extra parts that are of small font */
+    font-family: "Open Sans";
+    font-size: 0.4em; 
+    color: black;
+    font-style: italic;
+    font-variant: normal;
+    font-weight: normal;
+
+    line-height: 1.5;          /* Vertical Spacing - spacing between different lines */
+    letter-spacing: 0;       /* Horizontal Spacing - spacing between letters */
+}
+
+.navbar-tf{
+    font-family: "Open Sans", Arial, Helvetica;
+    font-size: 0.7em; 
+    color: white;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+
+    line-height: 1;          /* Vertical Spacing - spacing between different lines */
+    letter-spacing: 0.08em;       /* Horizontal Spacing - spacing between letters */
+}
+
+
+
+
+
+/* font-family:Arial, Helvetica, sans-serif;
+    font-size: 0.75em;
+    color:white;*/
+
+
+/* 
+    font-family: ;
+    font-size: ; 
+    color: ;
+    font-style: ;
+    font-variant: ;
+    font-weight: ;
+
+    line-height: ;           Vertical Spacing - spacing between different lines 
+    letter-spacing: ;        Horizontal Spacing - spacing between letters  */
+
+
+
 
 
 
 /*** Global/General Styling ***/
 
 .grid-wrapper{      
-    /* General properties */
+    /* General Properties */
     background-color: #f8f8f8;
-    font-family: 'Open Sans', sans-serif;;
-    font-size: 1.8rem;
+    position: relative; /* Helps to position the the footer div to the bottom*/
 
     /* Grid Layout Properties */
     display: grid;
@@ -69,7 +174,7 @@ input:focus, textarea:focus, select:focus, input:after{
 
     grid-gap: 50px 10px;
     grid-template-columns: 0.75fr 5fr 0.75fr;
-    grid-template-rows: 100vh 250vh 20vh;
+    grid-template-rows: auto;
     
 }
 
@@ -144,14 +249,7 @@ input:focus, textarea:focus, select:focus, input:after{
 .navbar-item{
     /* General Properties */
     text-decoration: none;
-
-    font-family:Arial, Helvetica, sans-serif;
-    font-size: 0.75em;
-    color:white;
     margin: 0 30px;
-
-    /* Flex Properties */
-
 }
 
 
@@ -193,7 +291,6 @@ input:focus, textarea:focus, select:focus, input:after{
 .detector-section{
     /* General Properties */
     background-color:white;
-    text-align: center;
 
     /* Grid Properties*/
     grid-area: Detector;
@@ -204,13 +301,8 @@ input:focus, textarea:focus, select:focus, input:after{
 
 }
 
-
-.detector-h1{
-    /* General Properties */
-    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-    font-size: 1.25em;
-    padding-top:25px;
-    padding-bottom: 40px;
+.search-bar-heading{
+    text-align: center;
 }
 
 .search-bar{
@@ -267,28 +359,85 @@ input:focus, textarea:focus, select:focus, input:after{
     border-bottom-right-radius: 20px;
 }
 
-.each-news-response{
+.detector-response{
     /* General Properties */
     width: 100%;
+
+    /* Flex Properties */
+    display: flex;
+    flex-direction: column;
 }
+
+.each-news-response{
+    /* General Properties */
+    width: inherit;
+    padding-bottom: 45px;
+
+
+    /* Grid Properties */
+    display: grid;
+
+    grid-template-areas: " NewsContent NewsPrediction ";
+
+    grid-gap: 30px 50px;
+    grid-template-columns: 1.75fr 1fr;
+
+}
+
+.news-content-container{
+    /* General Properties */
+    padding-left: 40px;
+    padding-bottom: 30px;
+    height: 250px;
+
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+}
+
+.news-content-container:hover{
+    /* Scroll Bar Styling */
+    overflow-y: scroll;
+
+}
+        
 
 .resp-url{
     /* General Properties */
-    color: red;
+    color:#0000EE;
+    font-size: 0.45em;
+    padding-bottom:10px;
+
+
+   
+    
+    
 }
 
 .resp-news-title{
     /* General Properties */
+    font-weight: bold;
+    font-size: 0.8em;
 
+
+    padding-bottom: 15px;
+
+    
+    
 }
 
 .resp-news-text{
     /* General Properties */
 
+
+    
 }
 
 .resp-prediction{
     /* General Properties */
+ 
+
+    /* Flex Properties */
 
 
 }
@@ -300,7 +449,7 @@ input:focus, textarea:focus, select:focus, input:after{
 /*** News Section (parent: Main) ***/
 .news-section{
     /* General Properties */
-    background-color: thistle;
+    background-color:white;
 
     /* Outer Grid Properties*/
     grid-area: News;
@@ -329,13 +478,12 @@ input:focus, textarea:focus, select:focus, input:after{
     justify-items: center;
 }
 
-.news-h1{
+.news-title{
     /* General Properties */
     padding: 50px 50px;
 }
 
 .per-news{  
-    color: black;
     width: 400px;
 }
 
@@ -350,6 +498,9 @@ input:focus, textarea:focus, select:focus, input:after{
 .footer-container{
     /* General properties */
     background-color: rgb(40,48,71);
+    width:100%;
+    position:absolute;
+    bottom: 0;
 
     /* Grid Layout Properties */
     grid-area: Footer;

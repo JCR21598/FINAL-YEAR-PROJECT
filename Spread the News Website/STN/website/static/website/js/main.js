@@ -67,16 +67,19 @@ function sendToTemplate(each_response){
     var eachNewsDiv = document.createElement("div");
     eachNewsDiv.setAttribute("class", "each-news-response");
 
+    var newsContentDiv = document.createElement("div");     // This div is more for styling reasons
+    newsContentDiv.setAttribute("class", "news-content-container");
+
     //  Create necessary html elements and their attributes
     var newsUrl = document.createElement("div");
     var newsTitle = document.createElement("div");
     var newsText = document.createElement("div");
     var newsPrediction = document.createElement("div");
 
-    newsUrl.setAttribute("class", "resp-url");
-    newsTitle.setAttribute("class", "resp-news-title");
-    newsText.setAttribute("class", "resp-news-text");
-    newsPrediction.setAttribute("class", "resp-prediction");
+    newsUrl.setAttribute("class", "resp-url n-tf");
+    newsTitle.setAttribute("class", "resp-news-title n-tf");
+    newsText.setAttribute("class", "resp-news-text n-tf");
+    newsPrediction.setAttribute("class", "resp-prediction n-tf");
 
     //  Add response from view to new elements
     var respUrl = document.createTextNode(each_response.url);
@@ -90,10 +93,13 @@ function sendToTemplate(each_response){
     newsText.appendChild(respNewsText)
     newsPrediction.appendChild(respPrediction)
 
+    // Add elements that are from news content to specified div above
+    newsContentDiv.appendChild(newsUrl);
+    newsContentDiv.appendChild(newsTitle);
+    newsContentDiv.appendChild(newsText);
+
     //  Add elements to the new div
-    eachNewsDiv.appendChild(newsUrl);
-    eachNewsDiv.appendChild(newsTitle);
-    eachNewsDiv.appendChild(newsText);
+    eachNewsDiv.appendChild(newsContentDiv);
     eachNewsDiv.appendChild(newsPrediction);
 
     //  Add div to the response div already created in the HTML
