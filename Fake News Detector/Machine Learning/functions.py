@@ -1,5 +1,6 @@
 import pandas as pd
 import os
+import re
 
 
 #from cerberus import Validator
@@ -34,35 +35,68 @@ import os
         # }
 
 
+def check_path_exists(path):
 
+    if os.path.exists(path):
+        print("\nPATH EXSISTS")
+        print(f"\n  Current Path: {path}")
+
+    else:
+        print("PATH DOES NOT EXIST")
+        print(f"Invalid Path => {path}")
+        exit()
 
 
 # Read the selected file
 def read_dataset(file, available_files, purpose):
 
-    # # Check if the file exists
-    # print(os.path.abspath(file))
-    # filename, file_extension = os.path.splitext(str(os.path.abspath(file)))
-    # print(file_extension)
+    # Current path and check if valid
+    path = os.path.dirname(os.path.abspath(__file__))
+    check_path_exists(path)
 
-
-    # if os.path.exists(file.lower()):
-    #     print("File path does not exist.")
-    #     exit()
-
+    # Check if file asked by user exsits
     if file.lower() in available_files:
 
-        # Code for TSV
+        # Getting the contents of dataset directory chosen from user
+        for root, directories, files in os.walk("Project Files\Datasets\{}".format(file.lower())):
 
-        # Code for CSV
-        csv_df = pd.read_csv("datasets/" + file.lower() + "/" + purpose.lower() + ".csv",
-                             index_col=0)  # Reminder: index_col, is to force pandas to not use the first column as index
+            # Find file based off purpose
+            requested_file = [x for x in files if purpose in x]
+
+            if len(requested_file) >= 2:
+                print(f"There are more than 1 file for {purpose}")
+                exit()
+
+            # Remove the list brackets and quotation
+            result = ", ".join(requested_file)
+
+            # Need the extension for upcoming process
+            file_name , (file_extension) = os.path.splitext(result)
+
+            if file_extension.lower() == ".csv":
+                # Reminder: index_col, is to force pandas to not use the first column as index
+                csv_df = pd.read_csv("Project Files/Datasets/" + file.lower() + "/" + purpose.lower() + ".csv",
+                                     index_col=0)
+
+                return csv_df
+
+            elif file_extension.lower() is ".tsv":
+
+                tsv_df = pd.read_csv("Project Files/Datasets/" + file.lower() + "/" + purpose.lower() + ".tsv",
+                                     index_col=0,
+                                     sep="\t")
+                return tsv_df
+
+            else:
+
+                print("The file extension '{0}' is not valid in {1}".format(file_extension,
+                                                                            path + root + file_name))
+
+                exit()
 
     else:
-        print("file is not available")
-        exit()
+        print(f"The selected file '{file}' does not exsist")
 
-    return csv_df
 
 
 # We save but split thr label from the Dataframe
@@ -89,3 +123,16 @@ def print_params(name, params):
     print(params)
     print()
 
+
+
+###     Decorators
+
+def train_time(original_func):
+
+    def wrapper(*args, **kwargs):
+
+
+
+        return original_func(*args, **kwargs)
+
+    return wrapper

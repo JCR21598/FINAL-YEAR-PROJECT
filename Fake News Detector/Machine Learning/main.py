@@ -1,91 +1,54 @@
+import logging
+import joblib
+
 
 from detector import Detector
 from testing import Testing
+from config import program_operations, ML_settings, testing_settings
 
-# Starting point of project
+
+
 if __name__ == "__main__":
 
     '''
     #
-    #   The mindset with this project is to have made it as versitle and configurable as possible for anyone that wishes
-    #   to use the program without understanding the actual programming being used. This format has also considered any
-    #   additional developer that wishes to use the program and be able to add new features to the program.
-    #
-    #   That being said the "setting" dictionary is what allows the user to configure the Machine Learning model to
-    #   their liking.
-    #
-    #   Although it is worth noting that not all key-value pairs are to be edited (unless programmed) and is there to
-    #   show what options the user has. But this is still left within the settings as it is convenient for other developers
-    #   and just to have all the settings in one place
+    #   Program was developed in Object-Oriented format. This relieved a lot of early developing stages which was a 
+    #   program that was hard to track, unsustainable and hard to unmaintainable.
     #
     '''
-
-    settings = {
-        
-        "program_operation" :{
-
-            "operation": "train",
-            "available_operations": ["train", "test"],
-        },
-
-        "general":{
-
-            #   select a file from the list of "available_files"
-            "selected_file": "GITHUB",
-            "available_files" : ["github", "kdata", "liar"],
-
-        },
-
-        "ML_settings":{
-
-            #  Stemmer - reduction of variations of words
-            "apply_stemmer" : False,
-
-            #   Stopwords - words that are common and have no significatn value
-            "apply_stopword_remover": False,
-
-            #   what happens with NaN values, options: True => consider them, False => Dont consider them
-            "considering_NaN": False,
-
-            # Select a number between 0 and 0.9
-            "validation_set_size": 0.3,
-
-        },
-
-        "testing_settings": {
-
-        },
-    }
-
-    '''
-        #
-        #   Program was developed in Object-Oriented format. This relieved a lot of early developing stages which was a 
-        #   program that was hard to track, unsustainable and hard to unmaintainable.
-        #
-    '''
+    #   TODO: In theory should have a validation for the config
 
 
-    #   This is you have a new model that needs training - worth noting that when training it will export the model
-    if settings["program_operation"]["operation"] is "train":
+    #   This is you have a new model that needs training
+    if program_operations["operation"] is "train":
 
-        #   Instatiating objects to use
-        detector = Detector(settings)
+        #   Instantiate Detector and send settings of user for model to use
+        detector = Detector(ML_settings)
 
         #   Train model
-        detector.train_model()
+        model = detector.train_model()
+
+
+        #   Export the model it established in settings
+        if program_operations["export_model"]:
+            joblib.dump(self.model, "Models.file".lower(), compress=1)
 
 
 
     #   This is if you already a model and just want to test it
-    elif settings["program_operation"]["operation"] is "test":
+    elif program_operations["operation"] is "test":
 
-        tester = Testing()
+        tester = Testing.validating_model("{0}.file".format(testing_settings["model"].lower()))
 
-        #   Test the model
-        tester.test_validation()
-        tester.test_recent()
-        tester.test_other_datasets()
+        if tester is not None:
 
+            #   Test the model
+            tester.test_validation()
+            tester.test_recent()
+            tester.test_other_datasets()
+
+        else:
+            print("The model specified in 'testing_settings' is not valid")
 
     else:
         print(f"The program operation {program_operation} is not valid")

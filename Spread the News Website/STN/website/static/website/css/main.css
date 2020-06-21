@@ -255,10 +255,13 @@ input:focus, textarea:focus, select:focus, input:after{
 
 .page-intro{
     /* General Properties */
-    background-color: #ececc7;
+    background-color: #3399FF;
+    position: relative;
 
-    /* Grid Properties */
+    /* Outer Grid Properties */
     grid-area: PageIntro;
+
+
 }
 
 

@@ -58,7 +58,6 @@ def url_prediction(request):
 
     json_response = []
 
-
     #   Data already arrived validated and not-blank
     if request.method == 'POST' and request.is_ajax():
 

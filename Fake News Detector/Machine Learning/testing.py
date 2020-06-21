@@ -1,4 +1,7 @@
 
+# Python Libraries
+import os
+
 # SKLEARN
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
@@ -7,12 +10,36 @@ import matplotlib
 
 import detector
 import functions as funcs
+import decorators as dec
 
 
-class Testing(detector.Detector):
+class Testing:
 
-    def __init__(self):
+    def __init__(self, model):
         pass
+
+
+    @classmethod
+    @dec.print_simple_divider
+    def validating_model(cls, model):
+
+        model_path = os.path.dirname(os.path.realpath(__file__ )) + "\Project Files\Train Results\Models"
+        funcs.check_path_exists(model_path)
+
+        # Check if any of the model files mathches users desired model to test on
+        file = "{0}\{1}".format(model_path, model)
+        funcs.check_path_exists(file)
+
+        file_existence = os.path.isfile()
+
+
+
+        # If model exsists then create an instance
+        if file_exsistence:
+            return cls(model)
+        # Otherwise just return None
+        return None
+
 
     ###     Testing Methods
 
@@ -22,7 +49,7 @@ class Testing(detector.Detector):
         validation_predicted = model.predict(self.X_test)
 
         print(f"\n\nAccuracy with {self.selected_file.lower()} VALIDATION dataset:",
-              accuracy_score(self.y_test, validation_predicted))
+              accuracy_score(self .y_test, validation_predicted))
 
         print(f"\n\nClassification Report for {self.selected_file.lower()} VALIDATION dataset:")
         print(classification_report(self.y_test, validation_predicted))
@@ -66,7 +93,7 @@ class Testing(detector.Detector):
 
 
 
-    #   Testing from data of other datasets
+    #   Testing from data of other Datasets
     def test_other_datasets(self):
         test2 = np.array([
             "Building a wall on the U.S.-Mexico border will take literally years.",

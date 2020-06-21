@@ -3,6 +3,7 @@
 import copy
 import re
 import string
+import time
 
 # Data Manipulation
 import pandas as pd
@@ -15,7 +16,6 @@ from sklearn.pipeline import Pipeline
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import cross_val_score
-
 
 # NLTK
 from nltk.tokenize import WhitespaceTokenizer, word_tokenize
@@ -53,10 +53,11 @@ class Detector:
         self.validation_set_size = settings["ML_settings"]["validation_set_size"]
 
 
+    @funcs.train_time
     def train_model(self):
 
         ###     Data Preparation
-        train_df = funcs.read_dataset(self.selected_file, self.available_files, 'train')
+        train_df = funcs.read_dataset(self.selected_file, self.available_files, self.operation)
 
 
         ###     Pre-Proprocessing - Cleaning Training Data
@@ -146,14 +147,7 @@ class Detector:
         # Create the model from training data
         self.model = grid_search.fit(X=self.X_train, y=self.y_train)
 
-        #   If the program operation was set to train then it saves the model - this is found in the settings dictionary
-        if self.operation.lower() == "train":
-            joblib.dump(self.model, "Models.file", compress=1)
-
-
-
-
-
+        return self.model
 
 
 
