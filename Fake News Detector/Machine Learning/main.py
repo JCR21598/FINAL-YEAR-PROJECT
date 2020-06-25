@@ -31,6 +31,10 @@ if __name__ == "__main__":
 
         #   Export the model it established in settings
         if program_operations["export_model"]:
+
+            # TODO: create a file saving system that increments by looking into the file and seeing largest number and just
+            #       +1 from that one.
+
             joblib.dump(self.model, "Models.file".lower(), compress=1)
 
 

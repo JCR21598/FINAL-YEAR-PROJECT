@@ -77,7 +77,6 @@ def read_dataset(file, available_files, purpose):
                 # Reminder: index_col, is to force pandas to not use the first column as index
                 csv_df = pd.read_csv("Project Files/Datasets/" + file.lower() + "/" + purpose.lower() + ".csv",
                                      index_col=0)
-
                 return csv_df
 
             elif file_extension.lower() is ".tsv":
@@ -91,7 +90,6 @@ def read_dataset(file, available_files, purpose):
 
                 print("The file extension '{0}' is not valid in {1}".format(file_extension,
                                                                             path + root + file_name))
-
                 exit()
 
     else:
@@ -125,14 +123,3 @@ def print_params(name, params):
 
 
 
-###     Decorators
-
-def train_time(original_func):
-
-    def wrapper(*args, **kwargs):
-
-
-
-        return original_func(*args, **kwargs)
-
-    return wrapper

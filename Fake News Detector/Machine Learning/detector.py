@@ -53,7 +53,12 @@ class Detector:
         self.validation_set_size = settings["ML_settings"]["validation_set_size"]
 
 
-    @funcs.train_time
+    #   TODO:   Need to make a function(s) that does the following:
+    #               - Tracks the time of the function
+    #               - Logs the data from the settings
+    #               - Logs the information about the model (Hyperparameters, model(s) type, dataset, validation set, etc)
+    #           All onto a spreadsheet
+
     def train_model(self):
 
         ###     Data Preparation

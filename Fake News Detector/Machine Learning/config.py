@@ -63,7 +63,10 @@ testing_settings = {
 
 dataset_settings = {
     "github": {
-        "label_types": [0, 1]
+        "label": {
+            "real_news_label": [0],
+            "fake_news_label": [1],
+        }
     },
     "kdata": {
 

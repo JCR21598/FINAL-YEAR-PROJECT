@@ -18,3 +18,5 @@ urlpatterns = [
     path('api/', views.api_page),
 
 ]
+
+
