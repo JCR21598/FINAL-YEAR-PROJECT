@@ -26,12 +26,14 @@ def home_page(request):
     #   Unbound Form
     form = DetectorForm()
 
-    ###     API
-    #   API CALL
-    newsapi = NewsApiClient(api_key='9dff3b262af247178cba410205157829')
+    ###     Gather News Feed
 
-    #   Type of News requested from API
-    top_headlines = newsapi.get_top_headlines(language='en')
+
+    # #   API CALL
+    # newsapi = NewsApiClient(api_key='9dff3b262af247178cba410205157829')
+    #
+    # #   Type of News requested from API
+    # top_headlines = newsapi.get_top_headlines(language='en')
 
 
     ###     Prep for Response
@@ -42,7 +44,7 @@ def home_page(request):
     context = {
         "title": "Spread the News",
         "form": form,
-        "top_headlines": top_headlines,
+        #"top_headlines": top_headlines,
     }
 
     return render(request, template_sent, context)
@@ -94,6 +96,18 @@ def url_prediction(request):
 
             #   However, cannot use numpy array as it causes more difficulties with JavaScript
             prediction = str(prediction_np).lstrip('[').rstrip(']')
+            print(prediction)
+
+
+            if prediction == "0":
+                prediction = "Fake News"
+
+            elif prediction == "1":
+                prediction= "Realiable News"
+
+            else:
+                prediction = "Internal Error"
+
 
             #   Results sent to JavaScript from each news report
             temp_json = {
@@ -138,22 +152,6 @@ def about_page(request):
     }
 
     return render(request, template_sent, context)
-
-
-
-""" #   Contact Us View(s)   # """
-def contact_page(request):
-
-    #   Designated Template
-    template_sent = "website/contact.html"
-
-    #   Data sent to Template
-    context = {
-        "title": "Contact Us",
-    }
-
-    return render(request, template_sent, context)
-
 
 
 """ #   API View(s)   # """

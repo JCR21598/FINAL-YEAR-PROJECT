@@ -2,13 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="037fb3e6-8a1a-48dc-8d07-7c666147a69c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Documentation/Resources.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Documentation/Resources.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documentation/Spread the News - Report.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../Documentation/Spread the News - Report.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documentation/~$read the News - Report.docx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Fake News Detector/Machine Learning/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Fake News Detector/Machine Learning/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Fake News Detector/Machine Learning/detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Fake News Detector/Machine Learning/detector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Fake News Detector/Machine Learning/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Fake News Detector/Machine Learning/decorators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Fake News Detector/Machine Learning/detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Fake News Detector/Machine Learning/training.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Fake News Detector/Machine Learning/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Fake News Detector/Machine Learning/functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Fake News Detector/Machine Learning/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Fake News Detector/Machine Learning/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Fake News Detector/Machine Learning/testing.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Fake News Detector/Machine Learning/testing.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STN/website/static/website/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/STN/website/static/website/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STN/website/templates/website/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/STN/website/templates/website/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STN/website/templates/website/contact.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/STN/website/templates/website/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/STN/website/templates/website/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STN/website/templates/website/snippets/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/STN/website/templates/website/snippets/navbar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/STN/website/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/STN/website/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STN/website/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/STN/website/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,15 +55,15 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Fake News Detector/Machine Learning" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Developer\University\FINAL YEAR PROJECT\Spread the News Website\STN\website\ml_models" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Developer\University\FINAL YEAR PROJECT\Spread the News Website\STN\website\static\website\css\Old" />
       <recent name="D:\Developer\University\FINAL YEAR PROJECT\Spread the News Website\STN\website\templates\website\old" />
       <recent name="D:\Developer\University\FINAL YEAR PROJECT\Spread the News Website\STN\website\templates\website" />
       <recent name="D:\Developer\University\FINAL YEAR PROJECT\Spread the News Website\STN\website\templates\website\snippets" />
       <recent name="D:\Developer\University\FINAL YEAR PROJECT\Spread the News Website\STN\website\static\website\css" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Developer\University\FINAL YEAR PROJECT\Spread the News Website\STN\website\ml_models" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -85,12 +95,12 @@
     <state x="-1180" y="273" key="FileChooserDialogImpl/-1920.-1.1920.1040/0.0.1920.1040@-1920.-1.1920.1040" timestamp="1588941334400" />
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1591918123322" />
     <state x="740" y="274" key="FileChooserDialogImpl/1920.174.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592566124289" />
-    <state x="175" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1592126424101">
+    <state x="175" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1595258360609">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="655" y="343" key="com.intellij.ide.util.TipDialog/-1920.-1.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1589139576787" />
     <state x="655" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589822593281" />
-    <state x="175" y="347" key="com.intellij.ide.util.TipDialog/1920.174.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592126424101" />
+    <state x="175" y="347" key="com.intellij.ide.util.TipDialog/1920.174.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1595258360609" />
     <state x="954" y="0" width="973" height="1047" key="dock-window-1" timestamp="1591862149990">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

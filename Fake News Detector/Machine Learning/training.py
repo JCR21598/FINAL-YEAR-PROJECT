@@ -1,10 +1,13 @@
+#
+#       Author:     Juan Camilo Rodriguez
+#
+#   About File:     This file is for the training of the model and all of the methods that are needed for such purpose.
+#
 
-# System related libraries
-import copy
-import re
-import string
-import time
 
+"""===     IMPORTS     ==="""
+
+'''Third-party Imports'''
 # Data Manipulation
 import pandas as pd
 import numpy as np
@@ -20,37 +23,54 @@ from sklearn.model_selection import cross_val_score
 # NLTK
 from nltk.tokenize import WhitespaceTokenizer, word_tokenize
 from nltk.corpus import stopwords
-from nltk.stem import SnowballStemmer
+from nltk.stem import SnowballStemmer, WordNetLemmatizer
 
 # Object Serialization
 import joblib
 
-# Other modules of this tool
+'''In-built Imports'''
+import copy
+import re
+import string
+import time
+import pprint
+
+
+'''Personal Imports'''
 import functions as funcs
-#from ML_functions import CustomValidator
+import decorators as decs
 
 
 
-class Detector:
+class Training:
 
-    def __init__(self, settings):
+    @decs.section_divider
+    def __init__(self, training_settings, chosen_dataset_settings):
 
         #   setting dictionary is destructed and set to attributes of the object to avoid lengthy expressions/statements
         #   and to use its attributes and methods in different places
 
-        #   Program Operation
-        self.operation = settings["program_operation"]["operation"]
-        self.available_files = settings["program_operation"]["available_operations"]
+        funcs.styled_print("Testing Settings", 214, "light_gray", 4)
+
+        self.print_settings(training_settings, "Model Settings:\n")
+        self.print_settings(chosen_dataset_settings, "Dataset Settings:\n")
+
+        """training settings"""
 
         #   General settings
-        self.selected_file = settings["general"]["selected_file"]
-        self.available_files = settings["general"]["available_files"]
+        self.selected_file = training_settings["dataset"]["selected_file"]
+        self.available_files = training_settings["dataset"]["available_files"]
 
         #   ML settings
-        self.apply_stopword_remover = settings["ML_settings"]["apply_stopword_remover"]
-        self.apply_stemmer = settings["ML_settings"]["apply_stemmer"]
-        self.considering_NaN = settings["ML_settings"]["considering_NaN"]
-        self.validation_set_size = settings["ML_settings"]["validation_set_size"]
+        self.apply_stopword_remover = training_settings["ML_settings"]["apply_stopword_remover"]
+        self.apply_stemmer_or_lemmatizer = training_settings["ML_settings"]["apply_stemmer_or_lemmatizer"]
+        self.considering_NaN = training_settings["ML_settings"]["considering_NaN"]
+        self.validation_set_size = training_settings["ML_settings"]["validation_set_size"]
+
+
+        """training settings"""
+        self.chosen_dataset_settings = chosen_dataset_settings
+
 
 
     #   TODO:   Need to make a function(s) that does the following:
@@ -59,18 +79,36 @@ class Detector:
     #               - Logs the information about the model (Hyperparameters, model(s) type, dataset, validation set, etc)
     #           All onto a spreadsheet
 
+
+
     def train_model(self):
 
         ###     Data Preparation
-        train_df = funcs.read_dataset(self.selected_file, self.available_files, self.operation)
+        train_df = funcs.read_dataset(self.selected_file, self.available_files, "train")
 
+        #   Retrieve the data that will be used for model
+        data_df = self.retrieve_input(train_df)
 
         ###     Pre-Proprocessing - Cleaning Training Data
 
         # Stemmer
-        if self.apply_stemmer:
+        if self.apply_stemmer_or_lemmatizer.lower() == "stemmer":
+
             stemmer = SnowballStemmer("english")
-            train_df['title-clean'] = train_df['title'].apply(lambda x: [stemmer.stem(y) for y in re.sub("[^a-zA-Z]", " ", str(x)).split()])
+            train_df['title-clean'] = train_df['title'].apply(
+                lambda x: [stemmer.stem(y) for y in re.sub("[^a-zA-Z]", " ", str(x)).split()])
+
+        elif self.apply_stemmer_or_lemmatizer.lower() == "lemmatizer":
+
+            lemmanizer = WordNetLemmatizer("english")
+            train_df['title-clean'] = train_df['title'].apply(
+                lambda x: [stemmer.stem(y) for y in re.sub("[^a-zA-Z]", " ", str(x)).split()])
+
+        else:
+            print("Neither Stemmer or Lemmanizer applied to the corpus")
+
+            # stemmer = SnowballStemmer("english")
+            # train_df['title-clean'] = train_df['title'].apply(lambda x: [stemmer.stem(y) for y in re.sub("[^a-zA-Z]", " ", str(x)).split()])
 
         # Stopwords
         if self.apply_stopword_remover:
@@ -155,8 +193,30 @@ class Detector:
         return self.model
 
 
+    #   Based upon config settings - gettings different inputs
+    def retrieve_input(self, train_df):
+
+        #   Check which data (title and/or body text) will be used
+        for key in self.chosen_dataset_settings["input"]:
+            if self.chosen_dataset_settings["input"][key]:
+
+
+                data = pd.DataFrame()
+
+
+        return input_df
+
+
+
 
     ###     Visualisation Methods
+
+    def print_settings(self, settings, message):
+
+        if message:
+            funcs.styled_print(message, 10, "black", 0)
+
+        pprint.pprint(settings)
 
     # Print the entire Dataframe
     def print_all_df(self, dataframe):

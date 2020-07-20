@@ -253,6 +253,7 @@ input:focus, textarea:focus, select:focus, input:after{
 }
 
 
+
 .page-intro{
     /* General Properties */
     background-color: #3399FF;
@@ -424,34 +425,26 @@ input:focus, textarea:focus, select:focus, input:after{
 
 
     padding-bottom: 15px;
-
-    
     
 }
 
 .resp-news-text{
     /* General Properties */
 
-
-    
 }
 
 .resp-prediction{
-    /* General Properties */
- 
+    /* General Properties */ 
 
+    
     /* Flex Properties */
 
-
 }
-
-
-
 
 
 /*** News Section (parent: Main) ***/
 .news-section{
-    /* General Properties */
+    /* General Properties */    
     background-color:white;
 
     /* Outer Grid Properties*/

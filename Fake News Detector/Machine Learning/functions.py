@@ -1,38 +1,30 @@
+#
+#       Author:     Juan Camilo Rodriguez
+#
+#   About File:     This file is for functions that are generic or that a series of files use.
+#
+
+
+
+"""===     IMPORTS     ==="""
+
+'''Third-party Imports'''
+from colored import fg, bg, attr
+
+'''In-built Imports'''
 import pandas as pd
 import os
 import re
 
+'''Personal Imports'''
 
-#from cerberus import Validator
 
+def styled_print(message, foreground, background, attribute):
+    fg_property = fg(foreground)
+    bg_property = bg(background)
+    attr_property = attr(attribute)
 
-#class CustomValidator(Validator):
-
-    #def _validate_inList(self, inList, field, value):
-
-        #   The outline/model of of what the settings dictionary should follow
-        # schema = {
-        #     "general": {
-        #
-        #         #   select a file from the list of "available_files"
-        #         "selected_file": {"type": "string".lower(), "oneof_allowed": settings['general']['available_files']},
-        #
-        #         "available_files":{"type": "list"},
-        #
-        #         #   what happens with NaN values, options: True => consider them, False => Dont consider them
-        #         "considering_NaN": False
-        #
-        #     },
-        #     "ML_settings": {
-        #
-        #         # Select a number between 0 and 1
-        #         "validation_set_size": 0.3
-        #
-        #     },
-        #     "testing_settings": {
-        #
-        #     },
-        # }
+    print(fg_property + bg_property + message + attr_property + "\n")
 
 
 def check_path_exists(path):
@@ -96,7 +88,6 @@ def read_dataset(file, available_files, purpose):
         print(f"The selected file '{file}' does not exsist")
 
 
-
 # We save but split thr label from the Dataframe
 def split_label(selected_file, current_df):
     if selected_file.lower() == "kdata":
@@ -115,6 +106,19 @@ def split_label(selected_file, current_df):
         return current_df, label
 
 
+def record_results():
+
+
+    pass
+
+
+
+def autosave_file (file, position):
+
+    path = os.path.dirname(os.path.abspath(__file__))
+    print(path)
+
+
 def print_params(name, params):
 
     print("Parameters for " + name)
@@ -123,3 +127,37 @@ def print_params(name, params):
 
 
 
+
+
+
+
+#from cerberus import Validator
+
+
+#class CustomValidator(Validator):
+
+    #def _validate_inList(self, inList, field, value):
+
+        #   The outline/model of of what the settings dictionary should follow
+        # schema = {
+        #     "general": {
+        #
+        #         #   select a file from the list of "available_files"
+        #         "selected_file": {"type": "string".lower(), "oneof_allowed": settings['general']['available_files']},
+        #
+        #         "available_files":{"type": "list"},
+        #
+        #         #   what happens with NaN values, options: True => consider them, False => Dont consider them
+        #         "considering_NaN": False
+        #
+        #     },
+        #     "ML_settings": {
+        #
+        #         # Select a number between 0 and 1
+        #         "validation_set_size": 0.3
+        #
+        #     },
+        #     "testing_settings": {
+        #
+        #     },
+        # }

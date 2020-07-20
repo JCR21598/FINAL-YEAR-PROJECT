@@ -1,3 +1,15 @@
+#
+#       Author:     Juan Camilo Rodriguez
+#
+#   About File:     This file is for the user to choose whether to perform training or testing. Upon that can set the
+#                   settings for either. Will have a range of options to choose from and able to make various combinations.
+#
+#                   The program has the ability to allow new datasets to be added with little to no chnage to the programming files.
+#                   For instance the user can add a new dataset and use it, as long as it follows the set standard. In addition,
+#                   can train a model from a range of classifiers and then save it if wished. After is able to load the model
+#                   again and challenge the classifier with numerous testing options.
+
+
 '''
 #
 #   The mindset with this project is to have made it as versatile and configurable as possible for anyone that wishes
@@ -7,40 +19,71 @@
 #   That being said the "config" file is what allows the user to configure the Machine Learning model and Dataset(s) to
 #   their liking.
 #
-#   Here are some notes about the follwing dictionaries:
+#   Here are some notes about the following dictionaries:
 #
-#       ML_settings:        This dictionary focuses on setting the values that the machine learning will use to train the
+#       program_operation:  This dictionary is to set main the main operations of the program, which is to either do training
+#                           or to test some models
+#
+#       dataset_settings:   This dictionary features the chracteristics of each dataset so that the program is able to understand
+#                           how each dataset works
+#
+#       training_settings:  This dictionary focuses on setting the values that the machine learning will use to train the
 #                           model.
 #
-#       dataset_settings:   This dictionary is less to be manipulated by the user but more about establishing information
-#                           about a dataset which then the model uses. Additionally, this also allows a place for opther
-#                           developers to add more datasets as long as it follows the required information that the model needs
+#       testing_settings:   This dictionary is to establish the steps that the program should take for the testing of a model
 #
 '''
 
+
 program_operations ={
 
-    "operation": "test",
+    "operation": "train",
     "available_operations": ["train", "test"],
     "export_model": True,
 
 }
 
 
-ML_settings = {
+dataset_settings = {
+    "github": {
+        "input": {
+            "title": True,
+            "body-text": True,
+        },
+        "label": {
+            "real_news_label": [0],
+            "fake_news_label": [1],
+            "label-column-index": 1
+        },
+    },
+    "kdata": {
 
-    "general": {
+    },
+    "liar":{
 
-        #   select a file from the list of "available_files"
-        "selected_file": "liar",
-        "available_files": ["github", "kdata", "liar"],
+    },
+
+}
+
+
+
+
+training_settings = {
+
+    "models": ["model"],
+
+    "dataset": {
+
+        #   select a file from the list in dataset_settings
+        "selected_file": "github",
+        "available_files": dataset_settings.keys()
 
     },
 
     "ML_settings": {
 
-        #  Stemmer - reduction of variations of words
-        "apply_stemmer": False,
+        #  Either use "stemmer" or "lemmatizer" or False for not applying anything
+        "apply_stemmer_or_lemmatizer": False,
 
         #   Stopwords - words that are common and have no significatn value
         "apply_stopword_remover": False,
@@ -54,25 +97,9 @@ ML_settings = {
     },
 }
 
+
 testing_settings = {
 
     "model": "MOVETE",
-
-}
-
-
-dataset_settings = {
-    "github": {
-        "label": {
-            "real_news_label": [0],
-            "fake_news_label": [1],
-        }
-    },
-    "kdata": {
-
-    },
-    "liar":{
-
-    },
 
 }

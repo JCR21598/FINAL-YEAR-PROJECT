@@ -11,9 +11,6 @@ urlpatterns = [
     # About URL(s)
     path('about/', views.about_page),
 
-    # Contact Us URL(s)
-    path('contact/', views.contact_page),
-
     # API URL(s)
     path('api/', views.api_page),
 

@@ -1,41 +1,50 @@
+#
+#       Author:     Juan Camilo Rodriguez
+#
+#   About File:     Execution file. Uses heavily the config file to execute other files.
+#
+
+"""===     IMPORTS     ==="""
+
+'''Third-party Imports'''
+
+
+'''In-built Imports'''
 import logging
 import joblib
 
-
-from detector import Detector
+'''Personal Imports'''
+from training import Training
 from testing import Testing
-from config import program_operations, ML_settings, testing_settings
+from config import program_operations, training_settings, testing_settings, dataset_settings
+import functions as funcs
 
 
 
 if __name__ == "__main__":
 
-    '''
-    #
-    #   Program was developed in Object-Oriented format. This relieved a lot of early developing stages which was a 
-    #   program that was hard to track, unsustainable and hard to unmaintainable.
-    #
-    '''
-    #   TODO: In theory should have a validation for the config
-
+    #   TODO: validation for the config
 
     #   This is you have a new model that needs training
     if program_operations["operation"] is "train":
 
+        #   Extracting the data for the dataset that will be used
+        chosen_dataset = dataset_settings[training_settings["dataset"]["selected_file"]]
+
         #   Instantiate Detector and send settings of user for model to use
-        detector = Detector(ML_settings)
+        training = Training(training_settings, chosen_dataset)
 
         #   Train model
-        model = detector.train_model()
-
+        model = training.train_model()
 
         #   Export the model it established in settings
         if program_operations["export_model"]:
 
             # TODO: create a file saving system that increments by looking into the file and seeing largest number and just
             #       +1 from that one.
-
-            joblib.dump(self.model, "Models.file".lower(), compress=1)
+            print("WOOO")
+            exit()
+            joblib.dump(self.model, funcs.autosave_file("Models.file".lower(), 2), compress=1)
 
 
 

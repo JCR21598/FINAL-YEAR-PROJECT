@@ -1,16 +1,26 @@
+#
+#       Author:     Juan Camilo Rodriguez
+#
+#   About File:     This file is for the testing of the model and all of the methods that are needed for such purpose.
+#
 
-# Python Libraries
-import os
+"""===     IMPORTS     ==="""
 
+'''Third-party Imports'''
 # SKLEARN
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
 # Visualisation
 import matplotlib
 
-import detector
+'''In-built Imports'''
+import os
+
+'''Personal Imports'''
+import training
 import functions as funcs
 import decorators as dec
+
 
 
 class Testing:
@@ -20,7 +30,6 @@ class Testing:
 
 
     @classmethod
-    @dec.print_simple_divider
     def validating_model(cls, model):
 
         model_path = os.path.dirname(os.path.realpath(__file__ )) + "\Project Files\Train Results\Models"
