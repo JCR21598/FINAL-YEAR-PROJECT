@@ -48,12 +48,12 @@ dataset_settings = {
     "github": {
         "input": {
             "title": True,
-            "body-text": True,
+            "body-text": False,
         },
         "label": {
-            "real_news_label": [0],
-            "fake_news_label": [1],
-            "label-column-index": 1
+            "real_news_label": 1,
+            "fake_news_label": 0,
+            "label-column-index": 4
         },
     },
     "kdata": {
@@ -100,6 +100,6 @@ training_settings = {
 
 testing_settings = {
 
-    "model": "MOVETE",
+    "model": "model",
 
 }

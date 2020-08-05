@@ -33,7 +33,7 @@ import copy
 import re
 import string
 import time
-import pprint
+
 
 
 '''Personal Imports'''
@@ -50,10 +50,6 @@ class Training:
         #   setting dictionary is destructed and set to attributes of the object to avoid lengthy expressions/statements
         #   and to use its attributes and methods in different places
 
-        funcs.styled_print("Testing Settings", 214, "light_gray", 4)
-
-        self.print_settings(training_settings, "Model Settings:\n")
-        self.print_settings(chosen_dataset_settings, "Dataset Settings:\n")
 
         """training settings"""
 
@@ -86,6 +82,8 @@ class Training:
         ###     Data Preparation
         train_df = funcs.read_dataset(self.selected_file, self.available_files, "train")
 
+        self.print_all_df(train_df)
+
         #   Retrieve the data that will be used for model
         data_df = self.retrieve_input(train_df)
 
@@ -95,6 +93,7 @@ class Training:
         if self.apply_stemmer_or_lemmatizer.lower() == "stemmer":
 
             stemmer = SnowballStemmer("english")
+
             train_df['title-clean'] = train_df['title'].apply(
                 lambda x: [stemmer.stem(y) for y in re.sub("[^a-zA-Z]", " ", str(x)).split()])
 
@@ -107,13 +106,11 @@ class Training:
         else:
             print("Neither Stemmer or Lemmanizer applied to the corpus")
 
-            # stemmer = SnowballStemmer("english")
-            # train_df['title-clean'] = train_df['title'].apply(lambda x: [stemmer.stem(y) for y in re.sub("[^a-zA-Z]", " ", str(x)).split()])
-
         # Stopwords
         if self.apply_stopword_remover:
             nltk_stopwords = stopwords.words("english")
             train_df['title-clean'] = train_df['title-clean'].apply(lambda x: [item for item in x if item not in nltk_stopwords])
+
 
         # NaN Values
         if self.considering_NaN:
@@ -193,13 +190,25 @@ class Training:
         return self.model
 
 
+
+
+
+
     #   Based upon config settings - gettings different inputs
     def retrieve_input(self, train_df):
 
-        #   Check which data (title and/or body text) will be used
-        for key in self.chosen_dataset_settings["input"]:
-            if self.chosen_dataset_settings["input"][key]:
+        # Get the type to retrieve from dataframe
+        input_type = self.chosen_dataset_settings["input"]
 
+
+
+
+
+
+        #   Check which data, title or body text, will be used
+        for key in self.chosen_dataset_settings["input"]:
+
+            if self.chosen_dataset_settings["input"][key]:
 
                 data = pd.DataFrame()
 
@@ -216,7 +225,6 @@ class Training:
         if message:
             funcs.styled_print(message, 10, "black", 0)
 
-        pprint.pprint(settings)
 
     # Print the entire Dataframe
     def print_all_df(self, dataframe):

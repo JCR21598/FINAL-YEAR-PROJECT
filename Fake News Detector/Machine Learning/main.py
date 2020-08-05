@@ -23,8 +23,6 @@ import functions as funcs
 
 if __name__ == "__main__":
 
-    #   TODO: validation for the config
-
     #   This is you have a new model that needs training
     if program_operations["operation"] is "train":
 
@@ -40,12 +38,7 @@ if __name__ == "__main__":
         #   Export the model it established in settings
         if program_operations["export_model"]:
 
-            # TODO: create a file saving system that increments by looking into the file and seeing largest number and just
-            #       +1 from that one.
-            print("WOOO")
-            exit()
-            joblib.dump(self.model, funcs.autosave_file("Models.file".lower(), 2), compress=1)
-
+            joblib.dump(self.model, funcs.autosave_file("Model_1.file".lower(), 2), compress=1)
 
 
     #   This is if you already a model and just want to test it

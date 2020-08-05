@@ -22,8 +22,6 @@ $(document).ready(function(){
 // AJAX function
 function detector_form(){
 
-    alert($('#detector-field').val())
-
     $.ajax({
         url: "/input/",
         type: "POST",
@@ -40,7 +38,6 @@ function detector_form(){
 
         // If AJAX successful
        success: function(view_response){
-            alert("Successful AJAX")
 
             //  Reset elements
             $('#detector-field').val('');
@@ -49,19 +46,19 @@ function detector_form(){
             //  Send News report for each response response
             view_response.forEach(sendToTemplate);
 
+            alert("The Intelligent System has made a prediction on the credibility of the URL(s) provided")
+
         },
 
         // If AJAX unsuccessful
         error: function(){
-            alert("AJAX Error");
+            alert("The Intelligent System failed to identify the URL");
         }
     });
 }
 
 
 function sendToTemplate(each_response){
-
-    console.log(each_response);
 
     //  Create div for each report
     var eachNewsDiv = document.createElement("div");
